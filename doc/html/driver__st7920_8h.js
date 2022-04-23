@@ -63,7 +63,7 @@ var driver__st7920_8h =
     [ "st7920_set_extended_function", "group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76", null ],
     [ "st7920_set_function", "group__st7920__basic__driver.html#ga0fc13c1c98b78f4f3a4a02f53515f58c", null ],
     [ "st7920_set_graphic_address", "group__st7920__extended__driver.html#gad6b4a212457440b609ddf4212f5802f6", null ],
-    [ "st7920_set_reverse_line", "group__st7920__extended__driver.html#gaf81a0344372cfedb5541ad4c2fcea8cb", null ],
+    [ "st7920_set_reverse_line", "group__st7920__extended__driver.html#ga4e3af4c3621cf344418079db536c4f52", null ],
     [ "st7920_set_scroll_address", "group__st7920__extended__driver.html#gae48468bcdf371db014e8a548dd9190ac", null ],
     [ "st7920_set_standby", "group__st7920__extended__driver.html#ga2ed86e363e0d49a66ace9e3644da56ea", null ],
     [ "st7920_set_vertical_scroll", "group__st7920__extended__driver.html#ga70296c9c4840aa5d1279befb151dedbe", null ],

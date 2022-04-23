@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_ST7920_INTERFACE_H_
-#define _DRIVER_ST7920_INTERFACE_H_
+#ifndef DRIVER_ST7920_INTERFACE_H
+#define DRIVER_ST7920_INTERFACE_H
 
 #include "driver_st7920.h"
 
@@ -151,10 +151,9 @@ void st7920_interface_delay_us(uint32_t us);
 /**
  * @brief     interface print format data
  * @param[in] fmt is the format data
- * @return    length of the send data
  * @note      none
  */
-uint16_t st7920_interface_debug_print(char *fmt, ...);
+void st7920_interface_debug_print(const char *const fmt, ...);
 
 /**
  * @}

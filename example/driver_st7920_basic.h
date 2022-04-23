@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_ST7920_BASIC_H_
-#define _DRIVER_ST7920_BASIC_H_
+#ifndef DRIVER_ST7920_BASIC_H
+#define DRIVER_ST7920_BASIC_H
 
 #include "driver_st7920_interface.h"
 

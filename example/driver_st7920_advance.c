@@ -47,7 +47,7 @@ static st7920_handle_t gs_handle;        /**< st7920 handle */
  */
 uint8_t st7920_advance_init(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* link functions */
     DRIVER_ST7920_LINK_INIT(&gs_handle, st7920_handle_t);
@@ -66,7 +66,7 @@ uint8_t st7920_advance_init(void)
     
     /* st7920 init */
     res = st7920_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: init failed.\n");
         
@@ -75,80 +75,80 @@ uint8_t st7920_advance_init(void)
     
     /* set basic function */
     res = st7920_set_function(&gs_handle, ST7920_ADVANCE_DEFAULT_BUS_BIT, ST7920_COMMAND_MODE_BASIC);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: set function failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* set enry mode */
     res = st7920_set_enry_mode(&gs_handle, ST7920_ADVANCE_DEFAULT_DISPLAY_SHIFT, ST7920_ADVANCE_DEFAULT_ADDRESS_COUNTER_MODE);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: set enry mode failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* set display shift mode */
     res = st7920_set_display_shift_mode(&gs_handle, ST7920_ADVANCE_DEFAULT_DISPLAY_SHIFT_MODE);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: set display shift mode failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* set cgram address */
     res = st7920_set_cgram_address(&gs_handle, 0x00);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: set cgram address failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* set ddram address */
     res = st7920_set_ddram_address(&gs_handle, 0x00);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: set ddram address failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* display clear */
     res = st7920_display_clear(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: display clear failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* return home */
     res = st7920_return_home(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: return home failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
     
     /* set display control */
     res = st7920_set_display_control(&gs_handle, ST7920_BOOL_TRUE, ST7920_BOOL_FALSE, ST7920_BOOL_FALSE);
-    if (res)
+    if (res != 0)
     {
         st7920_interface_debug_print("st7920: set display control failed.\n");
-        st7920_deinit(&gs_handle);
+        (void)st7920_deinit(&gs_handle);
         
         return 1;
     }
@@ -166,7 +166,7 @@ uint8_t st7920_advance_init(void)
 uint8_t st7920_advance_deinit(void)
 {
     /* deinit st7920 */
-    if (st7920_deinit(&gs_handle))
+    if (st7920_deinit(&gs_handle) != 0)
     {
         return 1;
     }
@@ -185,25 +185,19 @@ uint8_t st7920_advance_deinit(void)
  */
 uint8_t st7920_advance_display_on(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set basic function */
     res = st7920_set_function(&gs_handle, ST7920_ADVANCE_DEFAULT_BUS_BIT, ST7920_COMMAND_MODE_BASIC);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* set display control */
     res = st7920_set_display_control(&gs_handle, ST7920_BOOL_TRUE, ST7920_BOOL_FALSE, ST7920_BOOL_FALSE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set display control failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -219,25 +213,19 @@ uint8_t st7920_advance_display_on(void)
  */
 uint8_t st7920_advance_display_off(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set basic function */
     res = st7920_set_function(&gs_handle, ST7920_ADVANCE_DEFAULT_BUS_BIT, ST7920_COMMAND_MODE_BASIC);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* set display control */
     res = st7920_set_display_control(&gs_handle, ST7920_BOOL_FALSE, ST7920_BOOL_FALSE, ST7920_BOOL_FALSE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set display control failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -253,15 +241,12 @@ uint8_t st7920_advance_display_off(void)
  */
 uint8_t st7920_advance_clear(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* display clear */
     res = st7920_display_clear(&gs_handle);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: display clear failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -280,25 +265,19 @@ uint8_t st7920_advance_clear(void)
  */
 uint8_t st7920_advance_write_point(uint8_t x, uint8_t y, uint8_t data)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* write point */
     res = st7920_write_point(&gs_handle, x, y, data);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: write point failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -317,25 +296,19 @@ uint8_t st7920_advance_write_point(uint8_t x, uint8_t y, uint8_t data)
  */
 uint8_t st7920_advance_read_point(uint8_t x, uint8_t y, uint8_t *data)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* read point */
     res = st7920_read_point(&gs_handle, x, y, (uint8_t *)data);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: read point failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -354,25 +327,19 @@ uint8_t st7920_advance_read_point(uint8_t x, uint8_t y, uint8_t *data)
  */
 uint8_t st7920_advance_string(uint8_t x, uint8_t y, char *str)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set basic function */
     res = st7920_set_function(&gs_handle, ST7920_ADVANCE_DEFAULT_BUS_BIT, ST7920_COMMAND_MODE_BASIC);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* write string */
     res = st7920_write_string(&gs_handle, x, y, (char *)str);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: write string failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -391,27 +358,21 @@ uint8_t st7920_advance_string(uint8_t x, uint8_t y, char *str)
  *            - 1 fill rect failed
  * @note      none
  */
-uint8_t st7920_advance_rect(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color)
+uint8_t st7920_advance_rect(uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* fill a rect */
     res = st7920_fill_rect(&gs_handle, left, top, right, bottom, color);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: fill rect failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -430,27 +391,21 @@ uint8_t st7920_advance_rect(int8_t left, uint8_t top, uint8_t right, uint8_t bot
  *            - 1 draw picture failed
  * @note      none
  */
-uint8_t st7920_advance_picture(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)
+uint8_t st7920_advance_picture(uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* draw picture */
     res = st7920_draw_picture(&gs_handle, left, top, right, bottom, (uint8_t *)img);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: draw picture failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
@@ -459,28 +414,25 @@ uint8_t st7920_advance_picture(int8_t left, uint8_t top, uint8_t right, uint8_t 
 
 /**
  * @brief     advance example set reverse line
- * @param[in] line is the reverse line
+ * @param[in] l is the reverse line
  * @return    status code
  *            - 0 success
  *            - 1 set reverse line failed
  * @note      none
  */
-uint8_t st7920_advance_set_reverse_line(st7920_reverse_line_t line)
+uint8_t st7920_advance_set_reverse_line(st7920_reverse_line_t l)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* set reverse line */
-    if (st7920_set_reverse_line(&gs_handle, line))
+    if (st7920_set_reverse_line(&gs_handle, l) != 0)
     {
         return 1;
     }
@@ -500,20 +452,17 @@ uint8_t st7920_advance_set_reverse_line(st7920_reverse_line_t line)
  */
 uint8_t st7920_advance_set_scroll(uint8_t addr)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* set scroll */
-    if (st7920_set_scroll_address(&gs_handle, addr))
+    if (st7920_set_scroll_address(&gs_handle, addr) != 0)
     {
         return 1;
     }
@@ -532,20 +481,17 @@ uint8_t st7920_advance_set_scroll(uint8_t addr)
  */
 uint8_t st7920_advance_enable_scroll(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* st7920 start moving */
-    if (st7920_set_vertical_scroll(&gs_handle, ST7920_BOOL_TRUE))
+    if (st7920_set_vertical_scroll(&gs_handle, ST7920_BOOL_TRUE) != 0)
     {
         return 1;
     }
@@ -564,20 +510,17 @@ uint8_t st7920_advance_enable_scroll(void)
  */
 uint8_t st7920_advance_disable_scroll(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* set extended function */
     res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set extended function failed.\n");
-        st7920_deinit(&gs_handle);
-        
         return 1;
     }
     
     /* st7920 stop moving */
-    if (st7920_set_vertical_scroll(&gs_handle, ST7920_BOOL_FALSE))
+    if (st7920_set_vertical_scroll(&gs_handle, ST7920_BOOL_FALSE) != 0)
     {
         return 1;
     }

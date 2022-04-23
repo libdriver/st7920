@@ -1,4 +1,4 @@
-[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
 <img src="/doc/image/logo.png"/>
@@ -6,12 +6,12 @@
 
 ## LibDriver ST7920
 
-[![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/st7920/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/st7920/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 ST7920液晶控制器/驱动IC可以显示字母、数字、汉字和自定义字符。 它支持 3 种总线接口，即 8 位、4 位和串行。 所有功能，包括显示 RAM、字符生成 ROM、LCD 显示驱动器和控制电路都在一个单芯片解决方案中。 只需最少的系统配置，即可轻松实现汉字显示系统。ST7920包含8192个16x16点中文字体和126个16x8点半角字母数字字体的字符ROM。 此外，它还支持 64x256 点图形显示区域用于图形显示 (GDRAM)。 混合模式显示
 字符和图形数据都是可能的。 ST7920 内置 CGRAM，提供 4 组软件可编程 16x16 字体。ST7920 具有宽工作电压范围（2.7V 至 5.5V）。 它还具有低功耗。 所以ST7920是合适的用于电池供电的便携式设备。ST7920 LCD 驱动器由 32-common 和 64-segment 组成。
 
-LibDriver ST7920是LibDriver推出的ST7920的全功能驱动，该驱动提供绘制单点，填充块，图片显示等功能。
+LibDriver ST7920是LibDriver推出的ST7920的全功能驱动，该驱动提供绘制单点，填充块，图片显示等功能并且它符合MISRA标准
 
 ### 目录
 
@@ -52,10 +52,10 @@ LibDriver ST7920是LibDriver推出的ST7920的全功能驱动，该驱动提供�
 #### example basic
 
 ```C
-volatile uint8_t res;
+uint8_t res;
 
 res = st7920_basic_init();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: init failed.\n");
 
@@ -63,39 +63,43 @@ if (res)
 }
 
 res = st7920_basic_write_point(0, 0, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: write point failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_clear();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: clear screen failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_string(0, 0, "LibDriver");
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: show string failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_rect(0, 0, 32, 32, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: draw rect failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_deinit();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: deinit failed.\n");
 
@@ -114,11 +118,11 @@ return 0;
 </div>
 
 ```C
-volatile uint8_t res;
-const uint8_t gs_image[8192];
+uint8_t res;
+uint8_t gs_image[8192];
 
 res = st7920_advance_init();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: init failed.\n");
 
@@ -126,47 +130,52 @@ if (res)
 }
 
 res = st7920_advance_clear();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: clear screen failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_string(0, 0, "LibDriver");
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: show string failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_write_point(0, 0, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: write point failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_rect(0, 0, 32, 32, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: draw rect failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_picture(0, 0, 127, 63, gs_image);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: draw picture failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_deinit();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: deinit failed.\n");
 

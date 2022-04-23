@@ -1,4 +1,4 @@
-[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
 <img src="/doc/image/logo.png"/>
@@ -6,12 +6,12 @@
 
 ## LibDriver ST7920
 
-[![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/st7920/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/st7920/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 ST7920 LCD controller/driver IC can display alphabets, numbers, Chinese fonts and self-defined characters. It supports 3 kinds of bus interface, namely 8-bit, 4-bit and serial. All functions, including display RAM, Character Generation ROM, LCD display drivers and control circuits are all in a one-chip solution. With a minimum system configuration, a Chinese character display system can be easily achieved.ST7920 includes character ROM with 8192 16x16 dots Chinese fonts and 126 16x8 dots half-width alphanumerical fonts. Besides, it supports 64x256 dots graphic display area for graphic display (GDRAM). Mix-mode display with
 both character and graphic data is possible. ST7920 has built-in CGRAM and provide 4 sets software programmable 16x16 fonts.ST7920 has wide operating voltage range (2.7V to 5.5V). It also has low power consumption. So ST7920 is suitable for battery-powered portable device.ST7920 LCD driver consists of 32-common and 64-segment. 
 
-LibDriver ST7920 is the full function driver of ST7920 launched by LibDriver.It provides the functions of drawing single point, filling block, image display, etc.
+LibDriver ST7920 is the full function driver of ST7920 launched by LibDriver.It provides the functions of drawing single point, filling block, image display, etc. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
@@ -52,10 +52,10 @@ Add /src, /interface and /example to your project.
 #### example basic
 
 ```C
-volatile uint8_t res;
+uint8_t res;
 
 res = st7920_basic_init();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: init failed.\n");
 
@@ -63,39 +63,43 @@ if (res)
 }
 
 res = st7920_basic_write_point(0, 0, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: write point failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_clear();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: clear screen failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_string(0, 0, "LibDriver");
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: show string failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_rect(0, 0, 32, 32, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: draw rect failed.\n");
+    (void)st7920_basic_deinit();
 
     return 1;
 }
 
 res = st7920_basic_deinit();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: deinit failed.\n");
 
@@ -114,11 +118,11 @@ Image extraction format and every pixel stored in one byte.
 </div>
 
 ```C
-volatile uint8_t res;
-const uint8_t gs_image[8192];
+uint8_t res;
+uint8_t gs_image[8192];
 
 res = st7920_advance_init();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: init failed.\n");
 
@@ -126,47 +130,52 @@ if (res)
 }
 
 res = st7920_advance_clear();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: clear screen failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_string(0, 0, "LibDriver");
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: show string failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_write_point(0, 0, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: write point failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_rect(0, 0, 32, 32, 1);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: draw rect failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_picture(0, 0, 127, 63, gs_image);
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: draw picture failed.\n");
+    (void)st7920_advance_deinit();
 
     return 1;
 }
 
 res = st7920_advance_deinit();
-if (res)
+if (res != 0)
 {
     st7920_interface_debug_print("st7920: deinit failed.\n");
 

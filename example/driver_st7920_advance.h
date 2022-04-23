@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_ST7920_ADVANCE_H_
-#define _DRIVER_ST7920_ADVANCE_H_
+#ifndef DRIVER_ST7920_ADVANCE_H
+#define DRIVER_ST7920_ADVANCE_H
 
 #include "driver_st7920_interface.h"
 
@@ -149,7 +149,7 @@ uint8_t st7920_advance_string(uint8_t x, uint8_t y, char *str);
  *            - 1 fill rect failed
  * @note      none
  */
-uint8_t st7920_advance_rect(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color);
+uint8_t st7920_advance_rect(uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color);
 
 /**
  * @brief     advance example draw a picture
@@ -163,7 +163,7 @@ uint8_t st7920_advance_rect(int8_t left, uint8_t top, uint8_t right, uint8_t bot
  *            - 1 draw picture failed
  * @note      none
  */
-uint8_t st7920_advance_picture(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img);
+uint8_t st7920_advance_picture(uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img);
 
 /**
  * @brief     advance example set scroll
@@ -195,13 +195,13 @@ uint8_t st7920_advance_disable_scroll(void);
 
 /**
  * @brief     advance example set reverse line
- * @param[in] line is the reverse line
+ * @param[in] l is the reverse line
  * @return    status code
  *            - 0 success
  *            - 1 set reverse line failed
  * @note      none
  */
-uint8_t st7920_advance_set_reverse_line(st7920_reverse_line_t line);
+uint8_t st7920_advance_set_reverse_line(st7920_reverse_line_t l);
 
 /**
  * @}
