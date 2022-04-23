@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_ST7920_H_
-#define _DRIVER_ST7920_H_
+#ifndef DRIVER_ST7920_H
+#define DRIVER_ST7920_H
 
 #include <stdint.h>
 #include <stdio.h>
@@ -146,22 +146,22 @@ typedef enum
  */
 typedef struct st7920_handle_s
 {
-    uint8_t (*cs_gpio_init)(void);                    /**< point to a cs_gpio_init function address */
-    uint8_t (*cs_gpio_deinit)(void);                  /**< point to a cs_gpio_deinit function address */
-    uint8_t (*cs_gpio_write)(uint8_t value);          /**< point to a cs_gpio_write function address */
-    uint8_t (*sclk_gpio_init)(void);                  /**< point to a sclk_gpio_init function address */
-    uint8_t (*sclk_gpio_deinit)(void);                /**< point to a sclk_gpio_deinit function address */
-    uint8_t (*sclk_gpio_write)(uint8_t value);        /**< point to a sclk_gpio_write function address */
-    uint8_t (*sid_gpio_init)(void);                   /**< point to a sid_gpio_init function address */
-    uint8_t (*sid_gpio_deinit)(void);                 /**< point to a sid_gpio_deinit function address */
-    uint8_t (*sid_gpio_write)(uint8_t value);         /**< point to a sid_gpio_write function address */
-    uint16_t (*debug_print)(char *fmt, ...);          /**< point to a debug_print function address */
-    void (*delay_ms)(uint32_t ms);                    /**< point to a delay_ms function address */
-    void (*delay_us)(uint32_t us);                    /**< point to a delay_us function address */
-    uint8_t basic_extended;                           /**< basic extended flag */
-    uint8_t inited;                                   /**< inited flag */
-    uint8_t scroll_address;                           /**< scroll address */
-    uint16_t gram[8][64];                             /**< gram buffer */
+    uint8_t (*cs_gpio_init)(void);                          /**< point to a cs_gpio_init function address */
+    uint8_t (*cs_gpio_deinit)(void);                        /**< point to a cs_gpio_deinit function address */
+    uint8_t (*cs_gpio_write)(uint8_t value);                /**< point to a cs_gpio_write function address */
+    uint8_t (*sclk_gpio_init)(void);                        /**< point to a sclk_gpio_init function address */
+    uint8_t (*sclk_gpio_deinit)(void);                      /**< point to a sclk_gpio_deinit function address */
+    uint8_t (*sclk_gpio_write)(uint8_t value);              /**< point to a sclk_gpio_write function address */
+    uint8_t (*sid_gpio_init)(void);                         /**< point to a sid_gpio_init function address */
+    uint8_t (*sid_gpio_deinit)(void);                       /**< point to a sid_gpio_deinit function address */
+    uint8_t (*sid_gpio_write)(uint8_t value);               /**< point to a sid_gpio_write function address */
+    void (*debug_print)(const char *const fmt, ...);        /**< point to a debug_print function address */
+    void (*delay_ms)(uint32_t ms);                          /**< point to a delay_ms function address */
+    void (*delay_us)(uint32_t us);                          /**< point to a delay_us function address */
+    uint8_t basic_extended;                                 /**< basic extended flag */
+    uint8_t inited;                                         /**< inited flag */
+    uint8_t scroll_address;                                 /**< scroll address */
+    uint16_t gram[8][64];                                   /**< gram buffer */
 } st7920_handle_t;
 
 /**
@@ -609,7 +609,7 @@ uint8_t st7920_set_vertical_scroll(st7920_handle_t *handle, st7920_bool_t enable
 /**
  * @brief     set the reverse line
  * @param[in] *handle points to a st7920 handle structure
- * @param[in] line is the reverse line
+ * @param[in] l is the reverse line
  * @return    status code
  *            - 0 success
  *            - 1 set reverse line failed
@@ -618,7 +618,7 @@ uint8_t st7920_set_vertical_scroll(st7920_handle_t *handle, st7920_bool_t enable
  *            - 4 this command must be run in extended command mode
  * @note      none
  */
-uint8_t st7920_set_reverse_line(st7920_handle_t *handle, st7920_reverse_line_t line);
+uint8_t st7920_set_reverse_line(st7920_handle_t *handle, st7920_reverse_line_t l);
 
 /**
  * @brief     set the extended function

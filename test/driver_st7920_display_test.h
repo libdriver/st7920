@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_ST7920_DISPLAY_TEST_H_
-#define _DRIVER_ST7920_DISPLAY_TEST_H_
+#ifndef DRIVER_ST7920_DISPLAY_TEST_H
+#define DRIVER_ST7920_DISPLAY_TEST_H
 
 #include "driver_st7920_interface.h"
 

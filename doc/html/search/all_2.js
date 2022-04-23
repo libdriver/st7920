@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['debug_5fprint_6',['debug_print',['../structst7920__handle__s.html#a75f9f50c23e87e9407f9ec4e34bb42f2',1,'st7920_handle_s']]],
+  ['debug_5fprint_6',['debug_print',['../structst7920__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b',1,'st7920_handle_s']]],
   ['delay_5fms_7',['delay_ms',['../structst7920__handle__s.html#a406c9433252b7366de417b7a60915c81',1,'st7920_handle_s']]],
   ['delay_5fus_8',['delay_us',['../structst7920__handle__s.html#a97ffc4fce945527bd6ab25a3596caef7',1,'st7920_handle_s']]],
   ['driver_5fst7920_2ec_9',['driver_st7920.c',['../driver__st7920_8c.html',1,'']]],

@@ -37,7 +37,6 @@
 #include "driver_st7920_basic.h"
 #include "driver_st7920_advance.h"
 #include "driver_st7920_display_test.h"
-#include <stdlib.h>
 #include "shell.h"
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -152,7 +151,7 @@ uint8_t st7920(uint8_t argc, char **argv)
             if (strcmp("display", argv[2]) == 0)
             {
                 /* run reg test */
-                if (st7920_display_test())
+                if (st7920_display_test() != 0)
                 {
                     return 1;
                 }
@@ -180,15 +179,15 @@ uint8_t st7920(uint8_t argc, char **argv)
             /* basic test */
             if (strcmp("basic", argv[2]) == 0)
             {
-                volatile uint8_t res;
+                uint8_t res;
 
                 if (strcmp("-displayon", argv[3]) == 0)
                 {
                     res = st7920_basic_display_on();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: display on failed.\n");
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
@@ -199,10 +198,10 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-displayoff", argv[3]) == 0)
                 {
                     res = st7920_basic_display_off();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: display off failed.\n");
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
@@ -213,10 +212,10 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-clear", argv[3]) == 0)
                 {
                     res = st7920_basic_clear();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: clear screen failed.\n");
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
@@ -227,7 +226,7 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-init", argv[3]) == 0)
                 {
                     res = st7920_basic_init();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: init failed.\n");
                         
@@ -240,7 +239,7 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-deinit", argv[3]) == 0)
                 {
                     res = st7920_basic_deinit();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: deinit failed.\n");
                         
@@ -258,15 +257,15 @@ uint8_t st7920(uint8_t argc, char **argv)
             /* advance test */
             else if (strcmp("advance", argv[2]) == 0)
             {
-                volatile uint8_t res;
+                uint8_t res;
 
                 if (strcmp("-displayon", argv[3]) == 0)
                 {
                     res = st7920_advance_display_on();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: display on failed.\n");
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -277,10 +276,10 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-displayoff", argv[3]) == 0)
                 {
                     res = st7920_advance_display_off();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: display off failed.\n");
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -291,10 +290,10 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-clear", argv[3]) == 0)
                 {
                     res = st7920_advance_clear();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: clear screen failed.\n");
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -305,7 +304,7 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-init", argv[3]) == 0)
                 {
                     res = st7920_advance_init();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: init failed.\n");
                         
@@ -318,7 +317,7 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-deinit", argv[3]) == 0)
                 {
                     res = st7920_advance_deinit();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: deinit failed.\n");
                         
@@ -331,7 +330,7 @@ uint8_t st7920(uint8_t argc, char **argv)
                 else if (strcmp("-disable_scroll", argv[3]) == 0)
                 {
                     res = st7920_advance_disable_scroll();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: disable scroll failed.\n");
                         
@@ -366,23 +365,23 @@ uint8_t st7920(uint8_t argc, char **argv)
             /* basic test */
             if (strcmp("basic", argv[2]) == 0)
             {
-                volatile uint8_t res;
+                uint8_t res;
                 
                 if (strcmp("-str", argv[3]) == 0)
                 {
                     res = st7920_basic_clear();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: clear screen failed.\n");
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
                     res = st7920_basic_string(0, 0, argv[4]);
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: show string failed.\n");
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
@@ -398,23 +397,23 @@ uint8_t st7920(uint8_t argc, char **argv)
             /* advance test */
             else if (strcmp("advance", argv[2]) == 0)
             {
-                volatile uint8_t res;
+                uint8_t res;
                 
                 if (strcmp("-str", argv[3]) == 0)
                 {
                     res = st7920_advance_clear();
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: clear screen failed.\n");
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
                     res = st7920_advance_string(0, 0, argv[4]);
-                    if (res)
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: show string failed.\n");
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -426,19 +425,19 @@ uint8_t st7920(uint8_t argc, char **argv)
                 {
                     /* enable scroll */
                     res = st7920_advance_enable_scroll();
-                    if (res)
+                    if (res != 0)
                     {
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
                     
                     /* set scroll */
-                    res = st7920_advance_set_scroll(atoi(argv[4]));
-                    if (res)
+                    res = st7920_advance_set_scroll((uint8_t)atoi(argv[4]));
+                    if (res != 0)
                     {
                         st7920_interface_debug_print("st7920: set scroll failed.\n");
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -456,9 +455,9 @@ uint8_t st7920(uint8_t argc, char **argv)
                     
                     /* set reverse line */
                     res = st7920_advance_set_reverse_line((st7920_reverse_line_t)(atoi(argv[4])));
-                    if (res)
+                    if (res != 0)
                     {
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -492,16 +491,14 @@ uint8_t st7920(uint8_t argc, char **argv)
             /* basic test */
             if (strcmp("basic", argv[2]) == 0)
             {
-                volatile uint8_t res;
-                
                 if (strcmp("-writepoint", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     
-                    res = st7920_basic_write_point(atoi(argv[4]), atoi(argv[5]), atoi(argv[6]));
-                    if (res)
+                    res = st7920_basic_write_point((uint8_t)atoi(argv[4]), (uint8_t)atoi(argv[5]), (uint8_t)atoi(argv[6]));
+                    if (res != 0)
                     {
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
@@ -517,16 +514,14 @@ uint8_t st7920(uint8_t argc, char **argv)
             /* advance test */
             else if (strcmp("advance", argv[2]) == 0)
             {
-                volatile uint8_t res;
-
                 if (strcmp("-writepoint", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     
-                    res = st7920_advance_write_point(atoi(argv[4]), atoi(argv[5]), atoi(argv[6]));
-                    if (res)
+                    res = st7920_advance_write_point((uint8_t)atoi(argv[4]), (uint8_t)atoi(argv[5]), (uint8_t)atoi(argv[6]));
+                    if (res != 0)
                     {
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -561,12 +556,13 @@ uint8_t st7920(uint8_t argc, char **argv)
             {
                 if (strcmp("-rect", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     
-                    res = st7920_basic_rect(atoi(argv[4]), atoi(argv[5]), atoi(argv[6]), atoi(argv[7]), atoi(argv[8]));
-                    if (res)
+                    res = st7920_basic_rect((uint8_t)atoi(argv[4]), (uint8_t)atoi(argv[5]), (uint8_t)atoi(argv[6]),
+                                           (uint8_t)atoi(argv[7]), (uint8_t)atoi(argv[8]));
+                    if (res != 0)
                     {
-                        st7920_basic_deinit();
+                        (void)st7920_basic_deinit();
                         
                         return 1;
                     }
@@ -584,12 +580,13 @@ uint8_t st7920(uint8_t argc, char **argv)
             {
                 if (strcmp("-rect", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     
-                    res = st7920_advance_rect(atoi(argv[4]), atoi(argv[5]), atoi(argv[6]), atoi(argv[7]), atoi(argv[8]));
-                    if (res)
+                    res = st7920_advance_rect((uint8_t)atoi(argv[4]), (uint8_t)atoi(argv[5]), (uint8_t)atoi(argv[6]),
+                                             (uint8_t)atoi(argv[7]), (uint8_t)atoi(argv[8]));
+                    if (res != 0)
                     {
-                        st7920_advance_deinit();
+                        (void)st7920_advance_deinit();
                         
                         return 1;
                     }
@@ -713,7 +710,7 @@ static void _sig_handler(int signum)
  */
 int main(uint8_t argc, char **argv)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* socket init*/
     res = _socket_init();

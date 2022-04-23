@@ -5,7 +5,7 @@ var group__st7920__basic__driver =
       [ "cs_gpio_deinit", "structst7920__handle__s.html#a4c0f1e46af6a7a5276974c61d65ab862", null ],
       [ "cs_gpio_init", "structst7920__handle__s.html#ab5682510ddfd8a64750b8be949703fa1", null ],
       [ "cs_gpio_write", "structst7920__handle__s.html#af418db8f344e1d0060b3db39c56ed692", null ],
-      [ "debug_print", "structst7920__handle__s.html#a75f9f50c23e87e9407f9ec4e34bb42f2", null ],
+      [ "debug_print", "structst7920__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b", null ],
       [ "delay_ms", "structst7920__handle__s.html#a406c9433252b7366de417b7a60915c81", null ],
       [ "delay_us", "structst7920__handle__s.html#a97ffc4fce945527bd6ab25a3596caef7", null ],
       [ "gram", "structst7920__handle__s.html#a5151255ad72fa97e657b5bfc73f6e6a5", null ],

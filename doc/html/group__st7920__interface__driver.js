@@ -3,7 +3,7 @@ var group__st7920__interface__driver =
     [ "st7920_interface_cs_gpio_deinit", "group__st7920__interface__driver.html#ga4b7579dc316c4e1ab6a0461bf4d0e6af", null ],
     [ "st7920_interface_cs_gpio_init", "group__st7920__interface__driver.html#gabe3ca5d3fee68d8f2af4ba504ff7dbc8", null ],
     [ "st7920_interface_cs_gpio_write", "group__st7920__interface__driver.html#gaa3f048c0bc5112599d4f6c840219564a", null ],
-    [ "st7920_interface_debug_print", "group__st7920__interface__driver.html#gad080c56c91a777915994e906a1ce3320", null ],
+    [ "st7920_interface_debug_print", "group__st7920__interface__driver.html#ga2d87024aff3916e0580fcf0fb956e072", null ],
     [ "st7920_interface_delay_ms", "group__st7920__interface__driver.html#gab853a4d4ec650b1cd1ef3bd81e1623eb", null ],
     [ "st7920_interface_delay_us", "group__st7920__interface__driver.html#gae673e06966b80c448458477b344b518e", null ],
     [ "st7920_interface_sclk_gpio_deinit", "group__st7920__interface__driver.html#gad173bfa9af43525e004533b527cd8795", null ],
