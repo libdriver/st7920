@@ -97,9 +97,9 @@ st7920: min temperature is -30.0C.
 ```shell
 ./st7920 -p
 
-st7920: RS connected to GPIO22.
-st7920: RW connected to GPIO17.
-st7920: E connected to GPIO27.
+st7920: RS connected to GPIO22(BCM).
+st7920: RW connected to GPIO17(BCM).
+st7920: E connected to GPIO27(BCM).
 st7920: PSB connected to GND.
 ```
 
