@@ -92,9 +92,9 @@ uint8_t st7920(uint8_t argc, char **argv)
         else if (strcmp("-p", argv[1]) == 0)
         {
             /* print pin connection */
-            st7920_interface_debug_print("st7920: RS connected to GPIO22.\n");
-            st7920_interface_debug_print("st7920: RW connected to GPIO17.\n");
-            st7920_interface_debug_print("st7920: E connected to GPIO27.\n");
+            st7920_interface_debug_print("st7920: RS connected to GPIO22(BCM).\n");
+            st7920_interface_debug_print("st7920: RW connected to GPIO17(BCM).\n");
+            st7920_interface_debug_print("st7920: E connected to GPIO27(BCM).\n");
             st7920_interface_debug_print("st7920: PSB connected to GND.\n");
             
             return 0;
