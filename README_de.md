@@ -111,7 +111,7 @@ return 0;
 
 #### example advance
 
-Image extraction format and every pixel stored in one byte.
+Bildextraktionsformat und jedes Pixel in einem Byte gespeichert.
 
 <div align=center>
 <img src="/doc/image/image_format.png"/>

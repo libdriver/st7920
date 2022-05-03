@@ -111,7 +111,7 @@ return 0;
 
 #### example advance
 
-Image extraction format and every pixel stored in one byte.
+画像抽出フォーマットと1バイトに格納されたすべてのピクセル。
 
 <div align=center>
 <img src="/doc/image/image_format.png"/>
