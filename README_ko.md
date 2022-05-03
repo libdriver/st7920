@@ -111,7 +111,7 @@ return 0;
 
 #### example advance
 
-Image extraction format and every pixel stored in one byte.
+이미지 추출 형식 및 모든 픽셀이 1바이트에 저장됩니다.
 
 <div align=center>
 <img src="/doc/image/image_format.png"/>
