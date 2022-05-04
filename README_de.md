@@ -29,15 +29,15 @@ LibDriver ST7920 ist der Treiber mit vollem Funktionsumfang von ST7920, der von 
 
 /src enthält LibDriver ST7920-Quelldateien.
 
-/interface enthält die plattformunabhängige Vorlage LibDriver ST7920 GPIO。
+/interface enthält die plattformunabhängige Vorlage LibDriver ST7920 GPIO.
 
-/test enthält den Testcode des LibDriver ST7920-Treibers und dieser Code kann die erforderliche Funktion des Chips einfach testen。
+/test enthält den Testcode des LibDriver ST7920-Treibers und dieser Code kann die erforderliche Funktion des Chips einfach testen.
 
 /example enthält LibDriver ST7920-Beispielcode.
 
 /doc enthält das LibDriver ST7920-Offlinedokument.
 
-/Datenblatt enthält ST7920-Datenblatt。
+/Datenblatt enthält ST7920-Datenblatt.
 
 /project enthält den allgemeinen Beispielcode für Linux- und MCU-Entwicklungsboards. Alle Projekte verwenden das Shell-Skript, um den Treiber zu debuggen, und die detaillierten Anweisungen finden Sie in der README.md jedes Projekts.
 
