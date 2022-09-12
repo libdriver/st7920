@@ -29,15 +29,15 @@ LibDriver ST7920 is the full function driver of ST7920 launched by LibDriver.It 
 
 /src includes LibDriver ST7920 source files.
 
-/interface includes LibDriver ST7920 GPIO platform independent template。
+/interface includes LibDriver ST7920 GPIO platform independent template.
 
-/test includes LibDriver ST7920 driver test code and this code can test the chip necessary function simply。
+/test includes LibDriver ST7920 driver test code and this code can test the chip necessary function simply.
 
 /example includes LibDriver ST7920 sample code.
 
 /doc includes LibDriver ST7920 offline document.
 
-/datasheet includes ST7920 datasheet。
+/datasheet includes ST7920 datasheet.
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
@@ -52,6 +52,8 @@ Add /src, /interface and /example to your project.
 #### example basic
 
 ```C
+#include "driver_st7920_basic.h"
+
 uint8_t res;
 
 res = st7920_basic_init();
@@ -118,6 +120,8 @@ Image extraction format and every pixel stored in one byte.
 </div>
 
 ```C
+#include "driver_st7920_advance.h"
+
 uint8_t res;
 uint8_t gs_image[8192];
 

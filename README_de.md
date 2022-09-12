@@ -52,6 +52,8 @@ Fügen Sie /src, /interface und /example zu Ihrem Projekt hinzu.
 #### example basic
 
 ```C
+#include "driver_st7920_basic.h"
+
 uint8_t res;
 
 res = st7920_basic_init();
@@ -118,6 +120,8 @@ Bildextraktionsformat und jedes Pixel in einem Byte gespeichert.
 </div>
 
 ```c
+#include "driver_st7920_advance.h"
+
 uint8_t res;
 uint8_t gs_image[8192];
 
