@@ -425,7 +425,7 @@ uint8_t st7920_advance_set_reverse_line(st7920_reverse_line_t l)
     uint8_t res;
     
     /* set extended function */
-    res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
+    res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_FALSE);
     if (res != 0)
     {
         return 1;
