@@ -52,6 +52,8 @@ LibDriver ST7920是LibDriver推出的ST7920的全功能驅動，該驅動提供�
 #### example basic
 
 ```C
+#include "driver_st7920_basic.h"
+
 uint8_t res;
 
 res = st7920_basic_init();
@@ -118,6 +120,8 @@ return 0;
 </div>
 
 ```C
+#include "driver_st7920_advance.h"
+
 uint8_t res;
 uint8_t gs_image[8192];
 

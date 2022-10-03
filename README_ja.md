@@ -52,6 +52,8 @@ LibDriver ST7920は、LibDriverによって起動されたST7920の全機能ド�
 #### example basic
 
 ```C
+#include "driver_st7920_basic.h"
+
 uint8_t res;
 
 res = st7920_basic_init();
@@ -118,6 +120,8 @@ return 0;
 </div>
 
 ```c
+#include "driver_st7920_advance.h"
+
 uint8_t res;
 uint8_t gs_image[8192];
 

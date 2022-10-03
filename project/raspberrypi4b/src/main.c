@@ -627,6 +627,8 @@ uint8_t st7920(uint8_t argc, char **argv)
  */
 static uint8_t _socket_init(void)
 {
+    int optval;
+
     if ((gs_listen_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
     {
         st7920_interface_debug_print("st7920: cread socket failed.\n");
@@ -639,6 +641,13 @@ static uint8_t _socket_init(void)
     gs_server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     gs_server_addr.sin_port = htons(6666);
 
+    optval = 1;
+    if (setsockopt(gs_listen_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&optval, sizeof(optval)))
+    {
+        st7920_interface_debug_print("st7920: cread socket failed.\n");
+        
+        return 1;
+    }
     if (bind(gs_listen_fd, (struct sockaddr*)&gs_server_addr, sizeof(gs_server_addr)) < 0) 
     {
         st7920_interface_debug_print("st7920: bind failed.\n");
