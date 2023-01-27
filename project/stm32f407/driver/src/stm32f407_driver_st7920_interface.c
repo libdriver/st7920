@@ -49,7 +49,7 @@
  */
 uint8_t st7920_interface_cs_gpio_init(void)
 {
-    return wire_cs_init();
+    return wire_gpio_init();
 }
 
 /**
@@ -61,7 +61,7 @@ uint8_t st7920_interface_cs_gpio_init(void)
  */
 uint8_t st7920_interface_cs_gpio_deinit(void)
 {
-    return wire_cs_deinit();
+    return wire_gpio_deinit();
 }
 
 /**
@@ -74,7 +74,7 @@ uint8_t st7920_interface_cs_gpio_deinit(void)
  */
 uint8_t st7920_interface_cs_gpio_write(uint8_t value)
 {
-    return wire_cs_write(value);
+    return wire_gpio_write(value);
 }
 
 /**
@@ -179,14 +179,14 @@ void st7920_interface_delay_us(uint32_t us)
 void st7920_interface_debug_print(const char *const fmt, ...)
 {
     char str[256];
-    uint8_t len;
+    uint16_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char) * 256); 
     va_start(args, fmt);
-    vsnprintf((char *)str, 256, (char const *)fmt, args);
+    vsnprintf((char *)str, 255, (char const *)fmt, args);
     va_end(args);
-        
+    
     len = strlen((char *)str);
-    (void)uart1_write((uint8_t *)str, len);
+    (void)uart_write((uint8_t *)str, len);
 }

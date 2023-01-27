@@ -2,83 +2,181 @@
 
 #### 1.1 Chip Info
 
-chip name : STM32F407ZGT6.
+Chip Name: STM32F407ZGT6.
 
-extern oscillator : 8MHz.
+Extern Oscillator: 8MHz.
 
-uart pin: TX/RX PA9/PA10.
+UART Pin: TX/RX PA9/PA10.
 
-gpio pin: RS/RW/E/ PB1/PA8/PB0.
+GPIO Pin: RS/RW/E/PSB PB1/PA8/PB0/GND.
 
-gpio pin: PSB GND.
+### 2. Development and Debugging
 
-### 2. Shell
+#### 2.1 Integrated Development Environment
 
-#### 2.1 Shell Parameter
+LidDriver provides both Keil and IAR integrated development environment projects.
 
-baud rate: 115200.
+MDK is the Keil ARM project and your Keil version must be 5 or higher.Keil ARM project needs STMicroelectronics STM32F4 Series Device Family Pack and you can download from https://www.keil.com/dd2/stmicroelectronics/stm32f407zgtx.
 
-data bits : 8.
+EW is the IAR ARM project and your IAR version must be 9 or higher.
 
-stop bits: 1.
+#### 2.2 Serial Port Parameter
 
-parity: none.
+Baud Rate: 115200.
 
-flow control: none.
+Data Bits : 8.
+
+Stop Bits: 1.
+
+Parity: None.
+
+Flow Control: None.
+
+#### 2.3 Serial Port Assistant
+
+We use '\n' to wrap lines.If your serial port assistant displays exceptions (e.g. the displayed content does not divide lines), please modify the configuration of your serial port assistant or replace one that supports '\n' parsing.
 
 ### 3. ST7920
 
 #### 3.1 Command Instruction
 
-​          st7920 is a basic command which can test all st7920 driver function:
+1. Show st7920 chip and driver information.
 
-​           -i        show st7920 chip and driver information.
+   ```shell
+   st7920 (-i | --information)
+   ```
 
-​           -h       show st7920 help.
+2. Show st7920 help.
 
-​           -p       show st7920 pin connections of the current board.
+   ```shell
+   st7920 (-h | --help)
+   ```
 
-​           -t display        run st7920 display test. 
+3. Show st7920 pin connections of the current board.
 
-​           -c (basic (-init | -deinit | -str <string> | -displayon | -displayoff | -clear | -writepoint <x> <y> <color> | -rect <x1> <y1> <x2> <y2> <color>) | advance (-init | -deinit | -str <string> | -displayon | -displayoff | -clear | -writepoint <x> <y> <color> | -rect <x1> <y1> <x2> <y2> <color> | -disable_scroll | -scroll <addr> | -reverse_line <line>)))
+   ```shell
+   st7920 (-p | --port)
+   ```
 
-​           -c basic -init        run st7920 basic init function. 
+4. Run st7920 display test.
 
-​           -c basic -deinit        run st7920 basic deinit function. 
+   ```shell
+   st7920 (-t display | --test=display)
+   ```
 
-​           -c basic -str <string>        run st7920 show string function. string means the shown string. 
+5. Run st7920 basic init function.
 
-​           -c basic -displayon        run st7920 display on function. 
+   ```shell
+   st7920 (-e basic-init | --example=basic-init)
+   ```
 
-​           -c basic -displayoff        run st7920 display off function. 
+6. Run st7920 basic deinit function.
 
-​           -c basic -clear        run st7920 clear screen function. 
+   ```shell
+   st7920 (-e basic-deinit | --example=basic-deinit)
+   ```
 
-​           -c basic -writepoint  <x> <y> <color>        run st7920 write pont function. x and y mean coordinate in screen. color means the filled color.
+7. Run st7920 show string function, string means the shown string.
 
-​           -c basic -rect <x1> <y1> <x2> <y2> <color>        run st7920 draw rectangle function . x1 means x start. y1 means y start. x2 means x end. y2 means y end. color means the filled color.
+   ```shell
+   st7920 (-e basic-str | --example=basic-str) [--str=<string>]
+   ```
 
-​           -c advance -init        run st7920 advance init function. 
+8. Run st7920 display on function.
 
-​           -c advance -deinit        run st7920 advance deinit function. 
+   ```shell
+   st7920 (-e basic-display-on | --example=basic-display-on)
+   ```
 
-​           -c advance -str <string>        run st7920 show string function. string means the shown string. 
+9. Run st7920 display off function.
 
-​           -c advance -displayon        run st7920 display on function. 
+   ```shell
+   st7920 (-e basic-display-off | --example=basic-display-off)
+   ```
 
-​           -c advance -displayoff        run st7920 display off function. 
+10. Run st7920 clear screen function.
 
-​           -c advance -clear        run st7920 clear screen function. 
+    ```shell
+    st7920 (-e basic-clear | --example=basic-clear)
+    ```
 
-​           -c advance -writepoint  <x> <y> <color>        run st7920 write pont function. x and y mean coordinate in screen. color means the filled color.
+11. Run st7920 write pont function, x0 is the x of the point and y0 is the y of the point.
 
-​           -c advance -rect <x1> <y1> <x2> <y2> <color>        run st7920 draw rectangle function . x1 means x start. y1 means y start. x2 means x end. y2 means y end. color means the filled color.
+    ```shell
+    st7920 (-e basic-point | --example=basic-point) --x0=<x0> --y0=<y0> [--color=<0 | 1>]
+    ```
 
-​           -c advance -disable_scroll        run st7920 disable scroll function. 
+12. Run st7920 draw rectangle function, x1 is the top left x of the rect, y1 is the top left y of the rect, x2 is the bottom right x of the rect and y2 is the bottom right y of the rect.
 
-​           -c advance -scroll <addr>        run st7920 scroll function. addr is the scroll address and 0 <= addr <= 0x3F.
+    ```shell
+    st7920 (-e basic-rect | --example=basic-rect) --x1=<x1> --y1=<y1> --x2=<x2> --y2=<y2> [--color=<0 | 1>]
+    ```
 
-​           -c advance -reverse_line <line>        run st7920 reverse line function.line is the reverse line and it can be "0" or "1".
+13. Run st7920 advance init function.
+
+    ```shell
+    st7920 (-e advance-init | --example=advance-init)
+    ```
+
+14. Run st7920 advance deinit function.
+
+    ```shell
+    st7920 (-e advance-deinit | --example=advance-deinit)
+    ```
+
+15. Run st7920 show string function, string means the shown string. 
+
+    ```shell
+    st7920 (-e advance-str | --example=advance-str) [--str=<string>]
+    ```
+
+16. Run st7920 display on function.
+
+    ```shell
+    st7920 (-e advance-display-on | --example=advance-display-on)
+    ```
+
+17. Run st7920 display off function.
+
+    ```shell
+    st7920 (-e advance-display-off | --example=advance-display-off)
+    ```
+
+18. Run st7920 clear screen function.
+
+    ```shell
+    st7920 (-e advance-clear | --example=advance-clear)
+    ```
+
+19. Run st7920 write pont function, x0 is the x of the point and y0 is the y of the point.
+
+    ```shell
+    st7920 (-e advance-point | --example=advance-point) --x0=<x0> --y0=<y0> [--color=<0 | 1>]
+    ```
+
+20. Run st7920 draw rectangle function, x1 is the top left x of the rect, y1 is the top left y of the rect, x2 is the bottom right x of the rect and y2 is the bottom right y of the rect.
+
+    ```shell
+    st7920 (-e advance-rect | --example=advance-rect) --x1=<x1> --y1=<y1> --x2=<x2> --y2=<y2> [--color=<0 | 1>]
+    ```
+
+21. Run st7920 disable scroll function.
+
+    ```shell
+    st7920 (-e advance-disable-scroll | --example=advance-disable-scroll)
+    ```
+
+22. Run st7920 scroll function, addr is the scroll address and 0 <= addr <= 0x3F.
+
+    ```shell
+    st7920 (-e advance-scroll | --example=advance-scroll) [--scroll=<addr>]
+    ```
+
+23. Run st7920 reverse line function.
+
+    ```shell
+    st7920 (-e advance-reverse-line | --example=advance-reverse-line) [--line=<0 | 1>]
+    ```
 
 #### 3.2 Command Example
 
@@ -135,115 +233,115 @@ st7920: finish display test.
 ```
 
 ```shell
-st7920 -c basic -str 12345abcdEFGH
+st7920 -e basic-str --str=12345abcdEFGH
 
 st7920: 12345abcdEFGH.
 ```
 
 ```shell
-st7920 -c basic -init
+st7920 -e basic-init
 
 st7920: init success.
 ```
 
 ```shell
-st7920 -c basic -displayoff
+st7920 -e basic-display-off
 
 st7920: display off.
 ```
 
 ```shell
-st7920 -c basic -displayon
+st7920 -e basic-display-on
 
 st7920: display on.
 ```
 
 ```shell
-st7920 -c basic -clear
+st7920 -e basic-clear
 
 st7920: clear screen.
 ```
 
 ```shell
-st7920 -c basic -deinit
+st7920 -e basic-deinit
 
 st7920: deinit st7920.
 ```
 
 ```shell
-st7920 -c basic -writepoint 16 16 1
+st7920 -e basic-point --x0=16 --y0=16 --color=1
 
 st7920: write point 16 16 1.
 ```
 
 ```shell
-st7920 -c basic -rect 0 0 32 32 1
+st7920 -e basic-rect --x1=0 --y1=0 --x2=32 --y2=32 --color=1
 
 st7920: draw rect 0 0 32 32.
 ```
 
 ```shell
-st7920 -c advance -init
+st7920 -e advance-init
 
 st7920: init success.
 ```
 
 ```shell
-st7920 -c advance -str 12345abcdEFGH
+st7920 -e advance-str --str=12345abcdEFGH
 
 st7920: 12345abcdEFGH.
 ```
 
 ```shell
-st7920 -c advance -displayoff
+st7920 -e advance-display-off
 
 st7920: display off.
 ```
 
 ```shell
-st7920 -c advance -displayon
+st7920 -e advance-display-on
 
 st7920: display on.
 ```
 
 ```shell
-st7920 -c advance -clear
+st7920 -e advance-clear
 
 st7920: clear screen.
 ```
 
 ```shell
-st7920 -c advance -writepoint 16 16 1
+st7920 -e advance-point --x0=16 --y0=16 --color=1
 
 st7920: write point 16 16 1.
 ```
 
 ```shell
-st7920 -c advance -rect 0 0 32 32 1
+st7920 -e advance-rect --x1=0 --y1=0 --x2=32 --y2=32 --color=1
 
 st7920: draw rect 0 0 32 32.
 ```
 
 ```shell
-st7920 -c advance -deinit
+st7920 -e advance-deinit
 
 st7920: deinit st7920.
 ```
 
 ```shell
-st7920 -c advance -disable_scroll
+st7920 -e advance-disable-scroll
 
 st7920: disable scroll.
 ```
 
 ```shell
-st7920 -c advance -scroll 16
+st7920 -e advance-scroll --scroll=16
 
 st7920: set scroll 16.
 ```
 
 ```shell
-st7920 -c advance -reverse_line 0
+st7920 -e advance-reverse-line --line=0
 
 st7920: set reverse line 0.
 ```
@@ -251,51 +349,51 @@ st7920: set reverse line 0.
 ```shell
 st7920 -h
 
-st7920 -i
-	show st7920 chip and driver information.
-st7920 -h
-	show st7920 help.
-st7920 -p
-	show st7920 pin connections of the current board.
-st7920 -t display
-	run st7920 display test.
-st7920 -c basic -init
-	run st7920 basic init function.
-st7920 -c basic -deinit
-	run st7920 basic deinit function.
-st7920 -c basic -str <string>
-	run st7920 show string function.string means the shown string.
-st7920 -c basic -displayon
-	run st7920 display on function.
-st7920 -c basic -displayoff
-	run st7920 display off function.
-st7920 -c basic -clear
-	run st7920 clear screen function.
-st7920 -c basic -writepoint <x> <y> <color>
-	run st7920 write pont function.x and y mean coordinate in screen.color means the filled color.
-st7920 -c basic -rect <x1> <y1> <x2> <y2> <color>
-	run st7920 draw rectangle function.x1 means x start.y1 means y start.x2 means x end.y2 means y end.color means the filled color.
-st7920 -c advance -init
-	run st7920 advance init function.
-st7920 -c advance -deinit
-	run st7920 advance deinit function.
-st7920 -c advance -str <string>
-	run st7920 show string function.string means the shown string.
-st7920 -c advance -displayon
-	run st7920 display on function.
-st7920 -c advance -displayoff
-	run st7920 display off function.
-st7920 -c advance -clear
-	run st7920 clear screen function.
-st7920 -c advance -writepoint <x> <y> <color>
-	run st7920 write pont function.x and y mean coordinate in screen.color means the filled color.
-st7920 -c advance -rect <x1> <y1> <x2> <y2> <color>
-	run st7920 draw rectangle function.x1 means x start.y1 means y start.x2 means x end.y2 means y end.color means the filled color.
-st7920 -c advance -disable_scroll
-	run st7920 disable scroll function.
-st7920 -c advance -scroll <addr>
-	run st7920 scroll function.addr is the scroll address and 0 <= addr <= 0x3F.
-st7920 -c advance -reverse_line <line>
-	run st7920 reverse line function.line is the reverse line and it can be "0" or "1".
+Usage:
+  st7920 (-i | --information)
+  st7920 (-h | --help)
+  st7920 (-p | --port)
+  st7920 (-t display | --test=display)
+  st7920 (-e basic-init | --example=basic-init)
+  st7920 (-e basic-deinit | --example=basic-deinit)
+  st7920 (-e basic-str | --example=basic-str) [--str=<string>]
+  st7920 (-e basic-display-on | --example=basic-display-on)
+  st7920 (-e basic-display-off | --example=basic-display-off)
+  st7920 (-e basic-clear | --example=basic-clear)
+  st7920 (-e basic-point | --example=basic-point) --x0=<x0> --y0=<y0> [--color=<0 | 1>]
+  st7920 (-e basic-rect | --example=basic-rect) --x1=<x1> --y1=<y1> --x2=<x2> --y2=<y2> [--color=<0 | 1>]
+  st7920 (-e advance-init | --example=advance-init)
+  st7920 (-e advance-deinit | --example=advance-deinit)
+  st7920 (-e advance-str | --example=advance-str) [--str=<string>]
+  st7920 (-e advance-display-on | --example=advance-display-on)
+  st7920 (-e advance-display-off | --example=advance-display-off)
+  st7920 (-e advance-clear | --example=advance-clear)
+  st7920 (-e advance-point | --example=advance-point) --x0=<x0> --y0=<y0> [--color=<0 | 1>]
+  st7920 (-e advance-rect | --example=advance-rect) --x1=<x1> --y1=<y1> --x2=<x2> --y2=<y2> [--color=<0 | 1>]
+  st7920 (-e advance-disable-scroll | --example=advance-disable-scroll)
+  st7920 (-e advance-scroll | --example=advance-scroll) [--scroll=<addr>]
+  st7920 (-e advance-reverse-line | --example=advance-reverse-line) [--line=<0 | 1>]
+
+Options:
+      --color=<0 | 1>     Set the chip color.([default: 1])
+  -e <basic-init | basic-deinit | basic-str | basic-display-on | basic-display-off | basic-clear
+     | basic-point | basic-rect>, --example=<advance-init | advance-deinit | advance-str | advance-display-on
+     | advance-display-off | advance-clear | advance-point | advance-rect | advance-disable-scroll
+     | advance-scroll | advance-reverse-line>
+                          Run the driver example.
+  -h, --help              Show the help.
+  -i, --information       Show the chip information.
+      --line=<0 | 1>      Set the reverse line.([default: 0])
+  -p, --port              Display the pin connections of the current board.
+      --scroll            Set the scrolling address and 0 <= scroll <= 63.([default: 16])
+      --str=<string>      Set the display string.([default: libdriver])
+  -t <display>, --test=<display>
+                          Run the driver test.
+      --x0=<x0>           Set the x0 and it is the x of the point.
+      --x1=<x1>           Set the x1 and it is the top left x of the rect.
+      --x2=<x2>           Set the x2 and it is the bottom right x of the rect.
+      --y0=<y0>           Set the y0 and it is the y of the point.
+      --y1=<y1>           Set the y1 and it is the top left y of the rect.
+      --y2=<y2>           Set the y2 and it is the bottom right y of the rect.
 ```
 
