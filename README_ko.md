@@ -1,7 +1,7 @@
 [English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
-<img src="/doc/image/logo.png"/>
+<img src="/doc/image/logo.svg" width="400" height="150"/>
 </div>
 
 ## LibDriver ST7920
@@ -113,10 +113,10 @@ return 0;
 
 #### example advance
 
-이미지 추출 형식 및 모든 픽셀이 1바이트에 저장됩니다.
+이미지 추출 형식은 다음과 같으며 모든 픽셀은 1바이트에 저장됩니다.
 
 <div align=center>
-<img src="/doc/image/image_format.png"/>
+<img src="/doc/image/image_format.svg" width="220" height="220"/>
 </div>
 
 ```c
@@ -191,13 +191,13 @@ return 0;
 
 ### 문서
 
-온라인 문서: https://www.libdriver.com/docs/st7920/index.html
+온라인 문서: [https://www.libdriver.com/docs/st7920/index.html](https://www.libdriver.com/docs/st7920/index.html).
 
-오프라인 문서: /doc/html/index.html
+오프라인 문서: /doc/html/index.html.
 
 ### 기고
 
-연락주세요lishifenging@outlook.com
+CONTRIBUTING.md 를 참조하십시오.
 
 ### 저작권
 
@@ -213,4 +213,4 @@ MIT 라이선스(MIT)
 
 ### 문의하기
 
-연락주세요lishifenging@outlook.com
+연락주세요lishifenging@outlook.com.

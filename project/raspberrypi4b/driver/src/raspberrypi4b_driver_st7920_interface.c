@@ -36,6 +36,7 @@
 
 #include "driver_st7920_interface.h"
 #include "wire.h"
+#include <sys/time.h>
 #include <stdarg.h>
 
 /**
@@ -156,7 +157,7 @@ uint8_t st7920_interface_sid_gpio_write(uint8_t value)
  */
 void st7920_interface_delay_ms(uint32_t ms)
 {
-    usleep(1000 * ms);
+    st7920_interface_delay_us(ms * 1000);
 }
 
 /**
@@ -166,7 +167,30 @@ void st7920_interface_delay_ms(uint32_t ms)
  */
 void st7920_interface_delay_us(uint32_t us)
 {
-    usleep(us);
+    struct timeval now;
+    struct timeval before;
+    
+    /* get the before time */
+    if (gettimeofday(&before, NULL) < 0)
+    {
+        return;
+    }
+    
+    /* loop */
+    while (1)
+    {
+        /* get time */
+        if (gettimeofday(&now, NULL) < 0)
+        {
+            return;
+        }
+        
+        /* check the time */
+        if ((now.tv_sec - before.tv_sec) * 1000 * 1000 + (now.tv_usec - before.tv_usec) >= us)
+        {
+            break;
+        }
+    }
 }
 
 /**
@@ -177,14 +201,14 @@ void st7920_interface_delay_us(uint32_t us)
 void st7920_interface_debug_print(const char *const fmt, ...)
 {
     char str[256];
-    uint8_t len;
+    uint16_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char) * 256); 
     va_start(args, fmt);
-    vsnprintf((char *)str, 256, (char const *)fmt, args);
+    vsnprintf((char *)str, 255, (char const *)fmt, args);
     va_end(args);
-        
+    
     len = strlen((char *)str);
     (void)printf((uint8_t *)str, len);
 }
