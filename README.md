@@ -41,6 +41,8 @@ LibDriver ST7920 is the full function driver of ST7920 launched by LibDriver.It 
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
+/misra includes the LibDriver MISRA code scanning results.
+
 ### Install
 
 Reference /interface GPIO platform independent template and finish your platform GPIO driver.
