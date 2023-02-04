@@ -66,7 +66,7 @@ var group__st7920__basic__driver =
     [ "st7920_set_ddram_address", "group__st7920__basic__driver.html#gaa04e8a6bae4104ed921ea5365aebc7b8", null ],
     [ "st7920_set_display_control", "group__st7920__basic__driver.html#gad5f70a6103e067a0f43a62e9618f2036", null ],
     [ "st7920_set_display_shift_mode", "group__st7920__basic__driver.html#gaf1749037efe404e2234ec262ca7d5e6d", null ],
-    [ "st7920_set_enry_mode", "group__st7920__basic__driver.html#ga19080e3302e9a6296bbe4e3108de4ae4", null ],
+    [ "st7920_set_entry_mode", "group__st7920__basic__driver.html#ga2598f9fc0f532b1be81fa729816336cd", null ],
     [ "st7920_set_function", "group__st7920__basic__driver.html#ga0fc13c1c98b78f4f3a4a02f53515f58c", null ],
     [ "st7920_write_ram", "group__st7920__basic__driver.html#ga138e7d658b6b612b5c71e510ad16b9a8", null ],
     [ "st7920_write_string", "group__st7920__basic__driver.html#gadd144654f50c3bd75952d22f4a709f1b", null ]

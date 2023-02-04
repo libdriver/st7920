@@ -617,7 +617,7 @@ uint8_t st7920_write_string(st7920_handle_t *handle, uint8_t x, uint8_t y, char 
  * @param[in] x is the coordinate x
  * @param[in] y is the coordinate y
  * @param[in] data is the written data
- * @note      nonw
+ * @note      none
  */
 static void a_st7920_draw_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_t data)
 {
@@ -693,7 +693,7 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
     {
         for (y = top; y <= bottom; y++)                                                                 /* write y */
         {
-            a_st7920_draw_point(handle, x, y, color);                                                   /* draw poit */
+            a_st7920_draw_point(handle, x, y, color);                                                   /* draw point */
         }
     }
     
@@ -837,7 +837,7 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
     {
         for (y = top; y <= bottom; y++)                                                                 /* write y */
         {
-            a_st7920_draw_point(handle, x, y, *img);                                                    /* draw poit */
+            a_st7920_draw_point(handle, x, y, *img);                                                    /* draw point */
             img++;                                                                                      /* img++ */
         }
     }
@@ -1080,19 +1080,19 @@ uint8_t st7920_return_home(st7920_handle_t *handle)
 }
 
 /**
- * @brief     set the enry mode
+ * @brief     set the entry mode
  * @param[in] *handle points to an st7920 handle structure
  * @param[in] shift is the display shift
  * @param[in] mode is the address counter mode
  * @return    status code
  *            - 0 success
- *            - 1 set enry mode failed
+ *            - 1 set entry mode failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
  *            - 4 this command must be run in basic command mode
  * @note      none
  */
-uint8_t st7920_set_enry_mode(st7920_handle_t *handle, st7920_display_shift_t shift, st7920_address_counter_mode_t mode)
+uint8_t st7920_set_entry_mode(st7920_handle_t *handle, st7920_display_shift_t shift, st7920_address_counter_mode_t mode)
 {
     if (handle == NULL)                                                                          /* check handle */
     {
@@ -1114,7 +1114,7 @@ uint8_t st7920_set_enry_mode(st7920_handle_t *handle, st7920_display_shift_t shi
                            (mode << 1) | (shift << 0)),
                             100) != 0)                                                           /* write command */
     {
-        handle->debug_print("st7920: set enry mode failed.\n");                                  /* set enry mode failed */
+        handle->debug_print("st7920: set entry mode failed.\n");                                 /* set entry mode failed */
         
         return 1;                                                                                /* return error */
     }
@@ -1753,7 +1753,7 @@ uint8_t st7920_info(st7920_info_t *info)
     info->max_current_ma = MAX_CURRENT;                             /* set maximum current */
     info->temperature_max = TEMPERATURE_MAX;                        /* set minimal temperature */
     info->temperature_min = TEMPERATURE_MIN;                        /* set maximum temperature */
-    info->driver_version = DRIVER_VERSION;                          /* set driver verison */
+    info->driver_version = DRIVER_VERSION;                          /* set driver version */
     
     return 0;                                                       /* success return 0 */
 }

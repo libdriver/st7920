@@ -634,11 +634,11 @@ uint8_t st7920_display_test(void)
         return 1;
     }
     
-    /* set enry mode */
-    res = st7920_set_enry_mode(&gs_handle, ST7920_DISPLAY_SHIFT_RIGHT, ST7920_ADDRESS_COUNTER_MODE_INCREASE);
+    /* set entry mode */
+    res = st7920_set_entry_mode(&gs_handle, ST7920_DISPLAY_SHIFT_RIGHT, ST7920_ADDRESS_COUNTER_MODE_INCREASE);
     if (res != 0)
     {
-        st7920_interface_debug_print("st7920: set enry mode failed.\n");
+        st7920_interface_debug_print("st7920: set entry mode failed.\n");
         (void)st7920_deinit(&gs_handle);
         
         return 1;
