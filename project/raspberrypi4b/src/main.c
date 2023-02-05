@@ -22,7 +22,7 @@
  * SOFTWARE. 
  *
  * @file      main.c
- * @brief     main souce file
+ * @brief     main source file
  * @version   1.0.0
  * @author    Shifeng Li
  * @date      2022-03-19
@@ -89,7 +89,7 @@ uint8_t st7920(uint8_t argc, char **argv)
         {"y2", required_argument, NULL, 10},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     uint8_t color = 1;
     uint8_t line = 16;
     uint8_t scroll = 1;
@@ -804,7 +804,7 @@ static uint8_t a_socket_init(void)
     gs_listen_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (gs_listen_fd < 0) 
     {
-        st7920_interface_debug_print("st7920: cread socket failed.\n");
+        st7920_interface_debug_print("st7920: create socket failed.\n");
         
         return 1;
     }
@@ -819,7 +819,7 @@ static uint8_t a_socket_init(void)
     optval = 1;
     if (setsockopt(gs_listen_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&optval, sizeof(optval)) < 0)
     {
-        st7920_interface_debug_print("st7920: cread socket failed.\n");
+        st7920_interface_debug_print("st7920: create socket failed.\n");
         (void)close(gs_listen_fd);
         
         return 1;
@@ -916,7 +916,7 @@ int main(uint8_t argc, char **argv)
         return 1;
     }
 
-    /* shell init && register st7920 fuction */
+    /* shell init && register st7920 function */
     shell_init();
     shell_register("st7920", st7920);
     st7920_interface_debug_print("st7920: welcome to libdriver st7920.\n");
@@ -942,7 +942,7 @@ int main(uint8_t argc, char **argv)
             }
             else if (res == 2)
             {
-                st7920_interface_debug_print("st7920: unknow command.\n");
+                st7920_interface_debug_print("st7920: unknown command.\n");
             }
             else if (res == 3)
             {
@@ -958,7 +958,7 @@ int main(uint8_t argc, char **argv)
             }
             else
             {
-                st7920_interface_debug_print("st7920: unknow status code.\n");
+                st7920_interface_debug_print("st7920: unknown status code.\n");
             }
         }
     }

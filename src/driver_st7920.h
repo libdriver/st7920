@@ -385,19 +385,19 @@ uint8_t st7920_display_clear(st7920_handle_t *handle);
 uint8_t st7920_return_home(st7920_handle_t *handle);
 
 /**
- * @brief     set the enry mode
+ * @brief     set the entry mode
  * @param[in] *handle points to an st7920 handle structure
  * @param[in] shift is the display shift
  * @param[in] mode is the address counter mode
  * @return    status code
  *            - 0 success
- *            - 1 set enry mode failed
+ *            - 1 set entry mode failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
  *            - 4 this command must be run in basic command mode
  * @note      none
  */
-uint8_t st7920_set_enry_mode(st7920_handle_t *handle, st7920_display_shift_t shift, st7920_address_counter_mode_t mode);
+uint8_t st7920_set_entry_mode(st7920_handle_t *handle, st7920_display_shift_t shift, st7920_address_counter_mode_t mode);
 
 /**
  * @brief     set the display control
