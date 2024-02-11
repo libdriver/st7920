@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver ST7920
- * @brief     libdriver st7920 is a full function driver of st7920 and it can run in both MCU and Linux platform.
+ * @brief     LibDriver ST7920 is a full function driver of ST7920 and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
