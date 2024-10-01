@@ -8,7 +8,7 @@ Extern Oscillator: 8MHz.
 
 UART Pin: TX/RX PA9/PA10.
 
-GPIO Pin: RS/RW/E/PSB PB1/PA8/PB0/GND.
+GPIO Pin: RS/RW/E/PSB PB1/PA8/PA0/GND.
 
 ### 2. Development and Debugging
 
@@ -199,7 +199,7 @@ st7920 -p
 
 st7920: RS connected to GPIOB PIN1.
 st7920: RW connected to GPIOA PIN8.
-st7920: E connected to GPIOB PIN0.
+st7920: E connected to GPIOA PIN0.
 st7920: PSB connected to GND.
 ```
 
