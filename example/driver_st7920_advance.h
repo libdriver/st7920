@@ -103,9 +103,9 @@ uint8_t st7920_advance_clear(void);
 
 /**
  * @brief     advance example write a point
- * @param[in] x is the coordinate x
- * @param[in] y is the coordinate y
- * @param[in] data is the written data
+ * @param[in] x coordinate x
+ * @param[in] y coordinate y
+ * @param[in] data written data
  * @return    status code
  *            - 0 success
  *            - 1 write point failed
@@ -115,9 +115,9 @@ uint8_t st7920_advance_write_point(uint8_t x, uint8_t y, uint8_t data);
 
 /**
  * @brief      advance example read a point
- * @param[in]  x is the coordinate x
- * @param[in]  y is the coordinate y
- * @param[out] *data points to a data buffer
+ * @param[in]  x coordinate x
+ * @param[in]  y coordinate y
+ * @param[out] *data pointer to a data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read point failed
@@ -127,9 +127,9 @@ uint8_t st7920_advance_read_point(uint8_t x, uint8_t y, uint8_t *data);
 
 /**
  * @brief     advance example write a string
- * @param[in] x is the coordinate x
- * @param[in] y is the coordinate y
- * @param[in] *str points to a written string address
+ * @param[in] x coordinate x
+ * @param[in] y coordinate y
+ * @param[in] *str pointer to a written string address
  * @return    status code
  *            - 0 success
  *            - 1 write string failed
@@ -139,11 +139,11 @@ uint8_t st7920_advance_string(uint8_t x, uint8_t y, char *str);
 
 /**
  * @brief     advance example fill a rectangle
- * @param[in] left is the left coordinate x
- * @param[in] top is the top coordinate y
- * @param[in] right is the right coordinate x
- * @param[in] bottom is the bottom coordinate y
- * @param[in] color is the display color
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] color display color
  * @return    status code
  *            - 0 success
  *            - 1 fill rect failed
@@ -153,11 +153,11 @@ uint8_t st7920_advance_rect(uint8_t left, uint8_t top, uint8_t right, uint8_t bo
 
 /**
  * @brief     advance example draw a picture
- * @param[in] left is the left coordinate x
- * @param[in] top is the top coordinate y
- * @param[in] right is the right coordinate x
- * @param[in] bottom is the bottom coordinate y
- * @param[in] *img points to a image buffer
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] *img pointer to a image buffer
  * @return    status code
  *            - 0 success
  *            - 1 draw picture failed
@@ -167,7 +167,7 @@ uint8_t st7920_advance_picture(uint8_t left, uint8_t top, uint8_t right, uint8_t
 
 /**
  * @brief     advance example set scroll
- * @param[in] addr is the scroll address
+ * @param[in] addr scroll address
  * @return    status code
  *            - 0 success
  *            - 1 set scroll failed
@@ -195,7 +195,7 @@ uint8_t st7920_advance_disable_scroll(void);
 
 /**
  * @brief     advance example set reverse line
- * @param[in] l is the reverse line
+ * @param[in] l reverse line
  * @return    status code
  *            - 0 success
  *            - 1 set reverse line failed

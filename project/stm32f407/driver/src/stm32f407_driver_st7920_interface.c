@@ -66,7 +66,7 @@ uint8_t st7920_interface_cs_gpio_deinit(void)
 
 /**
  * @brief     interface cs gpio write
- * @param[in] value is the written value
+ * @param[in] value written value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -103,7 +103,7 @@ uint8_t st7920_interface_sclk_gpio_deinit(void)
 
 /**
  * @brief     interface sclk gpio write
- * @param[in] value is the written value
+ * @param[in] value written value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -140,7 +140,7 @@ uint8_t st7920_interface_sid_gpio_deinit(void)
 
 /**
  * @brief     interface sid gpio write
- * @param[in] value is the written value
+ * @param[in] value written value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -153,7 +153,7 @@ uint8_t st7920_interface_sid_gpio_write(uint8_t value)
 
 /**
  * @brief     interface delay ms
- * @param[in] ms
+ * @param[in] ms time
  * @note      none
  */
 void st7920_interface_delay_ms(uint32_t ms)
@@ -163,7 +163,7 @@ void st7920_interface_delay_ms(uint32_t ms)
 
 /**
  * @brief     interface delay us
- * @param[in] us
+ * @param[in] us time
  * @note      none
  */
 void st7920_interface_delay_us(uint32_t us)
@@ -173,7 +173,7 @@ void st7920_interface_delay_us(uint32_t us)
 
 /**
  * @brief     interface print format data
- * @param[in] fmt is the format data
+ * @param[in] fmt format data
  * @note      none
  */
 void st7920_interface_debug_print(const char *const fmt, ...)
