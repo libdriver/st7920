@@ -80,8 +80,8 @@
 
 /**
  * @brief     serial write
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] data is the write data
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] data written data
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -130,11 +130,11 @@ static uint8_t a_st7920_serial_write(st7920_handle_t *handle, uint8_t data)
 
 /**
  * @brief     write one byte
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] rw is the command type
- * @param[in] rs is the data type
- * @param[in] data is the write data
- * @param[in] us is the delay us
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] rw command type
+ * @param[in] rs data type
+ * @param[in] data written data
+ * @param[in] us delay us
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -203,7 +203,7 @@ static uint8_t a_st7920_write_byte(st7920_handle_t *handle, uint8_t rw, uint8_t 
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to an st7920 handle structure
+ * @param[in] *handle pointer to an st7920 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 gpio initialization failed
@@ -326,7 +326,7 @@ uint8_t st7920_init(st7920_handle_t *handle)
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to an st7920 handle structure
+ * @param[in] *handle pointer to an st7920 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 deinit failed
@@ -386,10 +386,10 @@ uint8_t st7920_deinit(st7920_handle_t *handle)
 
 /**
  * @brief     write a point
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] x is the coordinate x
- * @param[in] y is the coordinate y
- * @param[in] data is the write data
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] x coordinate x
+ * @param[in] y coordinate y
+ * @param[in] data written data
  * @return    status code
  *            - 0 success
  *            - 1 write point failed
@@ -478,10 +478,10 @@ uint8_t st7920_write_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_
 
 /**
  * @brief      read a point
- * @param[in]  *handle points to an st7920 handle structure
- * @param[in]  x is the coordinate x
- * @param[in]  y is the coordinate y
- * @param[out] *data points to a data buffer
+ * @param[in]  *handle pointer to an st7920 handle structure
+ * @param[in]  x coordinate x
+ * @param[in]  y coordinate y
+ * @param[out] *data pointer to a data buffer
  * @return     status code
  *             - 0 success
  *             - 1 write point failed
@@ -528,10 +528,10 @@ uint8_t st7920_read_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_t
 
 /**
  * @brief     show a string
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] x is the coordinate x
- * @param[in] y is the coordinate y
- * @param[in] *str points to a write string address
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] x coordinate x
+ * @param[in] y coordinate y
+ * @param[in] *str pointer to a write string address
  * @return    status code
  *            - 0 success
  *            - 1 write string failed
@@ -613,10 +613,10 @@ uint8_t st7920_write_string(st7920_handle_t *handle, uint8_t x, uint8_t y, char 
 
 /**
  * @brief     draw a point
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] x is the coordinate x
- * @param[in] y is the coordinate y
- * @param[in] data is the written data
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] x coordinate x
+ * @param[in] y coordinate y
+ * @param[in] data written data
  * @note      none
  */
 static void a_st7920_draw_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_t data)
@@ -633,12 +633,12 @@ static void a_st7920_draw_point(st7920_handle_t *handle, uint8_t x, uint8_t y, u
 
 /**
  * @brief     fill a rectangle
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] left is the left coordinate x
- * @param[in] top is the top coordinate y
- * @param[in] right is the right coordinate x
- * @param[in] bottom is the bottom coordinate y
- * @param[in] color is the display color
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] color display color
  * @return    status code
  *            - 0 success
  *            - 1 fill rect failed
@@ -777,12 +777,12 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
 
 /**
  * @brief     draw a picture
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] left is the left coordinate x
- * @param[in] top is the top coordinate y
- * @param[in] right is the right coordinate x
- * @param[in] bottom is the bottom coordinate y
- * @param[in] *img points to an image buffer
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] *img pointer to an image buffer
  * @return    status code
  *            - 0 success
  *            - 1 fill rect failed
@@ -922,7 +922,7 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
 
 /**
  * @brief     clear the display
- * @param[in] *handle points to an st7920 handle structure
+ * @param[in] *handle pointer to an st7920 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 display clear failed
@@ -1042,7 +1042,7 @@ uint8_t st7920_display_clear(st7920_handle_t *handle)
 
 /**
  * @brief     return the home
- * @param[in] *handle points to an st7920 handle structure
+ * @param[in] *handle pointer to an st7920 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 return home failed
@@ -1081,9 +1081,9 @@ uint8_t st7920_return_home(st7920_handle_t *handle)
 
 /**
  * @brief     set the entry mode
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] shift is the display shift
- * @param[in] mode is the address counter mode
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] shift display shift
+ * @param[in] mode address counter mode
  * @return    status code
  *            - 0 success
  *            - 1 set entry mode failed
@@ -1124,10 +1124,10 @@ uint8_t st7920_set_entry_mode(st7920_handle_t *handle, st7920_display_shift_t sh
 
 /**
  * @brief     set the display control
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] display_on is a bool value
- * @param[in] cursor_on is a bool value
- * @param[in] character_blink_on is a bool value
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] display_on bool value
+ * @param[in] cursor_on bool value
+ * @param[in] character_blink_on bool value
  * @return    status code
  *            - 0 success
  *            - 1 set display control failed
@@ -1168,8 +1168,8 @@ uint8_t st7920_set_display_control(st7920_handle_t *handle, st7920_bool_t displa
 
 /**
  * @brief     set the display shift mode
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] mode is the display shift mode
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] mode display shift mode
  * @return    status code
  *            - 0 success
  *            - 1 set display shift mode failed
@@ -1210,9 +1210,9 @@ uint8_t st7920_set_display_shift_mode(st7920_handle_t *handle, st7920_display_sh
 
 /**
  * @brief     set the function
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] bus_bit is the bus bit
- * @param[in] mode is the command mode
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] bus_bit bus bit
+ * @param[in] mode command mode
  * @return    status code
  *            - 0 success
  *            - 1 set function failed
@@ -1246,8 +1246,8 @@ uint8_t st7920_set_function(st7920_handle_t *handle, st7920_interface_bus_bit_t 
 
 /**
  * @brief     set the cgram address
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] addr is the cgram address
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] addr cgram address
  * @return    status code
  *            - 0 success
  *            - 1 set cgram address failed
@@ -1294,8 +1294,8 @@ uint8_t st7920_set_cgram_address(st7920_handle_t *handle, uint8_t addr)
 
 /**
  * @brief     set the ddram address
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] addr is the ddram address
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] addr ddram address
  * @return    status code
  *            - 0 success
  *            - 1 set ddram address failed
@@ -1342,9 +1342,9 @@ uint8_t st7920_set_ddram_address(st7920_handle_t *handle, uint8_t addr)
 
 /**
  * @brief     write the ram
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write ram failed
@@ -1388,7 +1388,7 @@ uint8_t st7920_write_ram(st7920_handle_t *handle, uint8_t *data, uint8_t len)
 
 /**
  * @brief     terminate to the standby mode
- * @param[in] *handle points to an st7920 handle structure
+ * @param[in] *handle pointer to an st7920 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 set standby failed
@@ -1427,8 +1427,8 @@ uint8_t st7920_set_standby(st7920_handle_t *handle)
 
 /**
  * @brief     set the vertical scroll
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set vertical scroll failed
@@ -1469,8 +1469,8 @@ uint8_t st7920_set_vertical_scroll(st7920_handle_t *handle, st7920_bool_t enable
 
 /**
  * @brief     set the reverse line
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] l is the reverse line
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] l reverse line
  * @return    status code
  *            - 0 success
  *            - 1 set reverse line failed
@@ -1510,10 +1510,10 @@ uint8_t st7920_set_reverse_line(st7920_handle_t *handle, st7920_reverse_line_t l
 
 /**
  * @brief     set the extended function
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] bus_bit is the bus bit
- * @param[in] mode is the command mode
- * @param[in] graphic_display_enable is a bool value
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] bus_bit bus bit
+ * @param[in] mode command mode
+ * @param[in] graphic_display_enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set extended function failed
@@ -1549,8 +1549,8 @@ uint8_t st7920_set_extended_function(st7920_handle_t *handle, st7920_interface_b
 
 /**
  * @brief     set the scroll address
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] addr is the scroll address
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] addr scroll address
  * @return    status code
  *            - 0 success
  *            - 1 set scroll address failed
@@ -1598,9 +1598,9 @@ uint8_t st7920_set_scroll_address(st7920_handle_t *handle, uint8_t addr)
 
 /**
  * @brief     set the graphic address
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] vertical_addr is the vertical address
- * @param[in] horizontal_addr is the horizontal address
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] vertical_addr vertical address
+ * @param[in] horizontal_addr horizontal address
  * @return    status code
  *            - 0 success
  *            - 1 set graphic address failed
@@ -1665,8 +1665,8 @@ uint8_t st7920_set_graphic_address(st7920_handle_t *handle, uint8_t vertical_add
 
 /**
  * @brief     write command
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] cmd is the write command
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] cmd written command
  * @return    status code
  *            - 0 success
  *            - 1 write cmd failed
@@ -1698,8 +1698,8 @@ uint8_t st7920_write_cmd(st7920_handle_t *handle, uint8_t cmd)
 
 /**
  * @brief     write data
- * @param[in] *handle points to an st7920 handle structure
- * @param[in] data is the write data
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] data written data
  * @return    status code
  *            - 0 success
  *            - 1 write data failed
@@ -1731,7 +1731,7 @@ uint8_t st7920_write_data(st7920_handle_t *handle, uint8_t data)
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to an st7920 info structure
+ * @param[out] *info pointer to an st7920 info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
