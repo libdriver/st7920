@@ -5,6 +5,8 @@ var driver__st7920__advance_8h =
     [ "ST7920_ADVANCE_DEFAULT_DISPLAY_SHIFT", "group__st7920__example__driver.html#gacc242d219f5911542b7f42fa721b1b81", null ],
     [ "ST7920_ADVANCE_DEFAULT_DISPLAY_SHIFT_MODE", "group__st7920__example__driver.html#gaeaf0349baab28b6a5c95abd94e9a64a6", null ],
     [ "st7920_advance_clear", "group__st7920__example__driver.html#ga0918b1af32cee5d53e922c20546a97b1", null ],
+    [ "st7920_advance_clear_image", "group__st7920__example__driver.html#ga85a03fecd58289f319ec5d6c6149a3da", null ],
+    [ "st7920_advance_clear_string", "group__st7920__example__driver.html#gabf3571d119ddf7958d8765d4ea0af2c1", null ],
     [ "st7920_advance_deinit", "group__st7920__example__driver.html#gab8b3084ee7d1df9e3756fc2f2c1f3712", null ],
     [ "st7920_advance_disable_scroll", "group__st7920__example__driver.html#ga2acb25e22d65b829d5a06ff72f629d08", null ],
     [ "st7920_advance_display_off", "group__st7920__example__driver.html#gaeab9159ac2bcbe4859f36f6f49db7f9d", null ],

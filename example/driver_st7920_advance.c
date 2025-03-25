@@ -254,6 +254,62 @@ uint8_t st7920_advance_clear(void)
 }
 
 /**
+ * @brief  advance example clear string
+ * @return status code
+ *         - 0 success
+ *         - 1 clear failed
+ * @note   none
+ */
+uint8_t st7920_advance_clear_string(void)
+{
+    uint8_t res;
+    
+    /* set basic function */
+    res = st7920_set_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_BASIC);
+    if (res != 0)
+    {
+        return 1;
+    }
+    
+    /* display clear */
+    res = st7920_display_clear(&gs_handle);
+    if (res != 0)
+    {
+        return 1;
+    }
+    
+    return 0;
+}
+
+/**
+ * @brief  advance example clear image
+ * @return status code
+ *         - 0 success
+ *         - 1 clear failed
+ * @note   none
+ */
+uint8_t st7920_advance_clear_image(void)
+{
+    uint8_t res;
+    
+    /* set extended function */
+    res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
+    if (res != 0)
+    {
+        return 1;
+    }
+    
+    /* display clear */
+    res = st7920_display_clear(&gs_handle);
+    if (res != 0)
+    {
+        return 1;
+    }
+    
+    return 0;
+}
+
+/**
  * @brief     advance example write a point
  * @param[in] x coordinate x
  * @param[in] y coordinate y

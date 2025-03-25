@@ -1,3 +1,9 @@
+## 1.0.7 (2025-03-26)
+
+## Features
+
+- add new clear functions
+
 ## 1.0.6 (2025-03-16)
 
 ## Bug Fixes
