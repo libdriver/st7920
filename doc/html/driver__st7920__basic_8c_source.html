@@ -272,110 +272,152 @@ $(document).ready(function(){initNavTree('driver__st7920__basic_8c_source.html',
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;}</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga3e1ffcae19255fe944a17a13540f9b4d">  266</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga3e1ffcae19255fe944a17a13540f9b4d">st7920_basic_write_point</a>(uint8_t x, uint8_t y, uint8_t data)</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;{</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    uint8_t res;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment">/* set extended function */</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    {</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">/* write point */</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga3b0c6f9e5f8002dc0809242d8726d3a8">st7920_write_point</a>(&amp;gs_handle, x, y, data);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga37758e4f1018467f27f87d0678bbafa1">  297</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga37758e4f1018467f27f87d0678bbafa1">st7920_basic_read_point</a>(uint8_t x, uint8_t y, uint8_t *data)</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;{</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    uint8_t res;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">/* set extended function */</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    {</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="comment">/* read point */</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#gadca96d799646e89d6c14979d173fab36">st7920_read_point</a>(&amp;gs_handle, x, y, (uint8_t *)data);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    {</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;}</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#gaae8a80ea4a47971ed933463ed3562c6e">  328</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#gaae8a80ea4a47971ed933463ed3562c6e">st7920_basic_string</a>(uint8_t x, uint8_t y, <span class="keywordtype">char</span> *str)</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    uint8_t res;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="comment">/* set basic function */</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#ga0fc13c1c98b78f4f3a4a02f53515f58c">st7920_set_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__example__driver.html#gad336007a0bd16d4b76cb3689fe890fb0">ST7920_BASIC_DEFAULT_BUS_BIT</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aa7c6f5b5f08d7704d3aa95e8b1365d93">ST7920_COMMAND_MODE_BASIC</a>);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    }</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">/* write string */</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#gadd144654f50c3bd75952d22f4a709f1b">st7920_write_string</a>(&amp;gs_handle, x, y, (<span class="keywordtype">char</span> *)str);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    {</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    }</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga8c318eef5c72fbf22f39d66a28a6e5cd">  361</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga8c318eef5c72fbf22f39d66a28a6e5cd">st7920_basic_rect</a>(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color)</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;{</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    uint8_t res;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="comment">/* set extended function */</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    {</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="comment">/* fill a rect */</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#gaa088b92fa271967f6302ef6505c2465a">st7920_fill_rect</a>(&amp;gs_handle, left, top, right, bottom, color);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    {</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    }</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;}</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
-<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga7df6180ce50719482ad7142493c7ab72">  394</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga7df6180ce50719482ad7142493c7ab72">st7920_basic_picture</a>(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;{</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    uint8_t res;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="comment">/* set extended function */</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    {</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="comment">/* draw picture */</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33">st7920_draw_picture</a>(&amp;gs_handle, left, top, right, bottom, (uint8_t *)img);</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    {</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    }</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;}</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#gaadce09211f932d71d95e480bf7964499">  263</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#gaadce09211f932d71d95e480bf7964499">st7920_basic_clear_string</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;{</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">/* set basic function */</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#ga0fc13c1c98b78f4f3a4a02f53515f58c">st7920_set_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aa7c6f5b5f08d7704d3aa95e8b1365d93">ST7920_COMMAND_MODE_BASIC</a>);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">/* display clear */</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#ga23c2f154b72222a831fb736ca33489a2">st7920_display_clear</a>(&amp;gs_handle);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    {</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga6a1dea921fdac8b006cd2bf243c6821a">  291</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga6a1dea921fdac8b006cd2bf243c6821a">st7920_basic_clear_image</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;{</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="comment">/* set extended function */</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    {</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="comment">/* display clear */</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#ga23c2f154b72222a831fb736ca33489a2">st7920_display_clear</a>(&amp;gs_handle);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;}</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga3e1ffcae19255fe944a17a13540f9b4d">  322</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga3e1ffcae19255fe944a17a13540f9b4d">st7920_basic_write_point</a>(uint8_t x, uint8_t y, uint8_t data)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;{</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="comment">/* set extended function */</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">/* write point */</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga3b0c6f9e5f8002dc0809242d8726d3a8">st7920_write_point</a>(&amp;gs_handle, x, y, data);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    }</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;}</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga37758e4f1018467f27f87d0678bbafa1">  353</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga37758e4f1018467f27f87d0678bbafa1">st7920_basic_read_point</a>(uint8_t x, uint8_t y, uint8_t *data)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;{</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="comment">/* set extended function */</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    {</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="comment">/* read point */</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#gadca96d799646e89d6c14979d173fab36">st7920_read_point</a>(&amp;gs_handle, x, y, (uint8_t *)data);</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    {</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    }</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;}</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#gaae8a80ea4a47971ed933463ed3562c6e">  384</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#gaae8a80ea4a47971ed933463ed3562c6e">st7920_basic_string</a>(uint8_t x, uint8_t y, <span class="keywordtype">char</span> *str)</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;{</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="comment">/* set basic function */</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#ga0fc13c1c98b78f4f3a4a02f53515f58c">st7920_set_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__example__driver.html#gad336007a0bd16d4b76cb3689fe890fb0">ST7920_BASIC_DEFAULT_BUS_BIT</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aa7c6f5b5f08d7704d3aa95e8b1365d93">ST7920_COMMAND_MODE_BASIC</a>);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    {</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    }</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="comment">/* write string */</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    res = <a class="code" href="group__st7920__basic__driver.html#gadd144654f50c3bd75952d22f4a709f1b">st7920_write_string</a>(&amp;gs_handle, x, y, (<span class="keywordtype">char</span> *)str);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    {</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    }</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;}</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga8c318eef5c72fbf22f39d66a28a6e5cd">  417</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga8c318eef5c72fbf22f39d66a28a6e5cd">st7920_basic_rect</a>(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;{</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="comment">/* set extended function */</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    {</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    }</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="comment">/* fill a rect */</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#gaa088b92fa271967f6302ef6505c2465a">st7920_fill_rect</a>(&amp;gs_handle, left, top, right, bottom, color);</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    {</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    }</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;}</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00450"></a><span class="lineno"><a class="line" href="group__st7920__example__driver.html#ga7df6180ce50719482ad7142493c7ab72">  450</a></span>&#160;uint8_t <a class="code" href="group__st7920__example__driver.html#ga7df6180ce50719482ad7142493c7ab72">st7920_basic_picture</a>(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;{</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="comment">/* set extended function */</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#ga909f2d6844dd6b3d56d2cff64036af76">st7920_set_extended_function</a>(&amp;gs_handle, <a class="code" href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a>, <a class="code" href="group__st7920__basic__driver.html#gga32b8c0b37b8ba9a026356d0315290e48aab44e4ae75483038566d38aae50df0c2">ST7920_COMMAND_MODE_EXTENDED</a>, <a class="code" href="group__st7920__basic__driver.html#gga10d9c35cdbf916af40a4e70e8bc08a07a0839040fa8cdadccf51296fc2e883c5c">ST7920_BOOL_TRUE</a>);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    {</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    }</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    </div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="comment">/* draw picture */</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    res = <a class="code" href="group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33">st7920_draw_picture</a>(&amp;gs_handle, left, top, right, bottom, (uint8_t *)img);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    {</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    }</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    </div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;}</div>
 <div class="ttc" id="adriver__st7920__basic_8h_html"><div class="ttname"><a href="driver__st7920__basic_8h.html">driver_st7920_basic.h</a></div><div class="ttdoc">driver st7920 basic header file</div></div>
 <div class="ttc" id="agroup__st7920__basic__driver_html_ga08c1300c82d7b47910b80451f8deff47"><div class="ttname"><a href="group__st7920__basic__driver.html#ga08c1300c82d7b47910b80451f8deff47">st7920_set_cgram_address</a></div><div class="ttdeci">uint8_t st7920_set_cgram_address(st7920_handle_t *handle, uint8_t addr)</div><div class="ttdoc">set the cgram address</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920_8c_source.html#l01260">driver_st7920.c:1260</a></div></div>
 <div class="ttc" id="agroup__st7920__basic__driver_html_ga0fc13c1c98b78f4f3a4a02f53515f58c"><div class="ttname"><a href="group__st7920__basic__driver.html#ga0fc13c1c98b78f4f3a4a02f53515f58c">st7920_set_function</a></div><div class="ttdeci">uint8_t st7920_set_function(st7920_handle_t *handle, st7920_interface_bus_bit_t bus_bit, st7920_command_mode_t mode)</div><div class="ttdoc">set the function</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920_8c_source.html#l01223">driver_st7920.c:1223</a></div></div>
@@ -395,14 +437,16 @@ $(document).ready(function(){initNavTree('driver__st7920__basic_8c_source.html',
 <div class="ttc" id="agroup__st7920__basic__driver_html_ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d"><div class="ttname"><a href="group__st7920__basic__driver.html#ggacd89dad849dc84c4e208856599c198d3a88457c7ca0ed906e29c420852240767d">ST7920_INTERFACE_BUS_BIT_8</a></div><div class="ttdeci">@ ST7920_INTERFACE_BUS_BIT_8</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920_8h_source.html#l00103">driver_st7920.h:103</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_ga070e2b8fb79efae8d5a28c2037eb4865"><div class="ttname"><a href="group__st7920__example__driver.html#ga070e2b8fb79efae8d5a28c2037eb4865">ST7920_BASIC_DEFAULT_DISPLAY_SHIFT_MODE</a></div><div class="ttdeci">#define ST7920_BASIC_DEFAULT_DISPLAY_SHIFT_MODE</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8h_source.html#l00059">driver_st7920_basic.h:59</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_ga33ed6566bce76fc7c22c988216e139c7"><div class="ttname"><a href="group__st7920__example__driver.html#ga33ed6566bce76fc7c22c988216e139c7">ST7920_BASIC_DEFAULT_ADDRESS_COUNTER_MODE</a></div><div class="ttdeci">#define ST7920_BASIC_DEFAULT_ADDRESS_COUNTER_MODE</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8h_source.html#l00058">driver_st7920_basic.h:58</a></div></div>
-<div class="ttc" id="agroup__st7920__example__driver_html_ga37758e4f1018467f27f87d0678bbafa1"><div class="ttname"><a href="group__st7920__example__driver.html#ga37758e4f1018467f27f87d0678bbafa1">st7920_basic_read_point</a></div><div class="ttdeci">uint8_t st7920_basic_read_point(uint8_t x, uint8_t y, uint8_t *data)</div><div class="ttdoc">basic example read a point</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00297">driver_st7920_basic.c:297</a></div></div>
-<div class="ttc" id="agroup__st7920__example__driver_html_ga3e1ffcae19255fe944a17a13540f9b4d"><div class="ttname"><a href="group__st7920__example__driver.html#ga3e1ffcae19255fe944a17a13540f9b4d">st7920_basic_write_point</a></div><div class="ttdeci">uint8_t st7920_basic_write_point(uint8_t x, uint8_t y, uint8_t data)</div><div class="ttdoc">basic example write a point</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00266">driver_st7920_basic.c:266</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_ga37758e4f1018467f27f87d0678bbafa1"><div class="ttname"><a href="group__st7920__example__driver.html#ga37758e4f1018467f27f87d0678bbafa1">st7920_basic_read_point</a></div><div class="ttdeci">uint8_t st7920_basic_read_point(uint8_t x, uint8_t y, uint8_t *data)</div><div class="ttdoc">basic example read a point</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00353">driver_st7920_basic.c:353</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_ga3e1ffcae19255fe944a17a13540f9b4d"><div class="ttname"><a href="group__st7920__example__driver.html#ga3e1ffcae19255fe944a17a13540f9b4d">st7920_basic_write_point</a></div><div class="ttdeci">uint8_t st7920_basic_write_point(uint8_t x, uint8_t y, uint8_t data)</div><div class="ttdoc">basic example write a point</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00322">driver_st7920_basic.c:322</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_ga68076a08ea128b0af4c9b4167ece29ac"><div class="ttname"><a href="group__st7920__example__driver.html#ga68076a08ea128b0af4c9b4167ece29ac">ST7920_BASIC_DEFAULT_DISPLAY_SHIFT</a></div><div class="ttdeci">#define ST7920_BASIC_DEFAULT_DISPLAY_SHIFT</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8h_source.html#l00057">driver_st7920_basic.h:57</a></div></div>
-<div class="ttc" id="agroup__st7920__example__driver_html_ga7df6180ce50719482ad7142493c7ab72"><div class="ttname"><a href="group__st7920__example__driver.html#ga7df6180ce50719482ad7142493c7ab72">st7920_basic_picture</a></div><div class="ttdeci">uint8_t st7920_basic_picture(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)</div><div class="ttdoc">basic example draw a picture</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00394">driver_st7920_basic.c:394</a></div></div>
-<div class="ttc" id="agroup__st7920__example__driver_html_ga8c318eef5c72fbf22f39d66a28a6e5cd"><div class="ttname"><a href="group__st7920__example__driver.html#ga8c318eef5c72fbf22f39d66a28a6e5cd">st7920_basic_rect</a></div><div class="ttdeci">uint8_t st7920_basic_rect(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color)</div><div class="ttdoc">basic example fill a rectangle</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00361">driver_st7920_basic.c:361</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_ga6a1dea921fdac8b006cd2bf243c6821a"><div class="ttname"><a href="group__st7920__example__driver.html#ga6a1dea921fdac8b006cd2bf243c6821a">st7920_basic_clear_image</a></div><div class="ttdeci">uint8_t st7920_basic_clear_image(void)</div><div class="ttdoc">basic example clear image</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00291">driver_st7920_basic.c:291</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_ga7df6180ce50719482ad7142493c7ab72"><div class="ttname"><a href="group__st7920__example__driver.html#ga7df6180ce50719482ad7142493c7ab72">st7920_basic_picture</a></div><div class="ttdeci">uint8_t st7920_basic_picture(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)</div><div class="ttdoc">basic example draw a picture</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00450">driver_st7920_basic.c:450</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_ga8c318eef5c72fbf22f39d66a28a6e5cd"><div class="ttname"><a href="group__st7920__example__driver.html#ga8c318eef5c72fbf22f39d66a28a6e5cd">st7920_basic_rect</a></div><div class="ttdeci">uint8_t st7920_basic_rect(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t color)</div><div class="ttdoc">basic example fill a rectangle</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00417">driver_st7920_basic.c:417</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_ga96584c5f1e93b40bc0fa41d76bf99e04"><div class="ttname"><a href="group__st7920__example__driver.html#ga96584c5f1e93b40bc0fa41d76bf99e04">st7920_basic_display_off</a></div><div class="ttdeci">uint8_t st7920_basic_display_off(void)</div><div class="ttdoc">basic example display off</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00214">driver_st7920_basic.c:214</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_gaa290366b9da38565d424b580d315773f"><div class="ttname"><a href="group__st7920__example__driver.html#gaa290366b9da38565d424b580d315773f">st7920_basic_deinit</a></div><div class="ttdeci">uint8_t st7920_basic_deinit(void)</div><div class="ttdoc">basic example deinit</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00166">driver_st7920_basic.c:166</a></div></div>
-<div class="ttc" id="agroup__st7920__example__driver_html_gaae8a80ea4a47971ed933463ed3562c6e"><div class="ttname"><a href="group__st7920__example__driver.html#gaae8a80ea4a47971ed933463ed3562c6e">st7920_basic_string</a></div><div class="ttdeci">uint8_t st7920_basic_string(uint8_t x, uint8_t y, char *str)</div><div class="ttdoc">basic example write a string</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00328">driver_st7920_basic.c:328</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_gaadce09211f932d71d95e480bf7964499"><div class="ttname"><a href="group__st7920__example__driver.html#gaadce09211f932d71d95e480bf7964499">st7920_basic_clear_string</a></div><div class="ttdeci">uint8_t st7920_basic_clear_string(void)</div><div class="ttdoc">basic example clear string</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00263">driver_st7920_basic.c:263</a></div></div>
+<div class="ttc" id="agroup__st7920__example__driver_html_gaae8a80ea4a47971ed933463ed3562c6e"><div class="ttname"><a href="group__st7920__example__driver.html#gaae8a80ea4a47971ed933463ed3562c6e">st7920_basic_string</a></div><div class="ttdeci">uint8_t st7920_basic_string(uint8_t x, uint8_t y, char *str)</div><div class="ttdoc">basic example write a string</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00384">driver_st7920_basic.c:384</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_gac581085af69b9c26710586f56cfc9b3e"><div class="ttname"><a href="group__st7920__example__driver.html#gac581085af69b9c26710586f56cfc9b3e">st7920_basic_display_on</a></div><div class="ttdeci">uint8_t st7920_basic_display_on(void)</div><div class="ttdoc">basic example display on</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00186">driver_st7920_basic.c:186</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_gac61cb571e41f71b246d1f787635fa653"><div class="ttname"><a href="group__st7920__example__driver.html#gac61cb571e41f71b246d1f787635fa653">st7920_basic_clear</a></div><div class="ttdeci">uint8_t st7920_basic_clear(void)</div><div class="ttdoc">basic example clear</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8c_source.html#l00242">driver_st7920_basic.c:242</a></div></div>
 <div class="ttc" id="agroup__st7920__example__driver_html_gad336007a0bd16d4b76cb3689fe890fb0"><div class="ttname"><a href="group__st7920__example__driver.html#gad336007a0bd16d4b76cb3689fe890fb0">ST7920_BASIC_DEFAULT_BUS_BIT</a></div><div class="ttdeci">#define ST7920_BASIC_DEFAULT_BUS_BIT</div><div class="ttdoc">st7920 basic example default definition</div><div class="ttdef"><b>Definition:</b> <a href="driver__st7920__basic_8h_source.html#l00056">driver_st7920_basic.h:56</a></div></div>

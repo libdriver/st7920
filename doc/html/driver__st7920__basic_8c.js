@@ -1,6 +1,8 @@
 var driver__st7920__basic_8c =
 [
     [ "st7920_basic_clear", "group__st7920__example__driver.html#gac61cb571e41f71b246d1f787635fa653", null ],
+    [ "st7920_basic_clear_image", "group__st7920__example__driver.html#ga6a1dea921fdac8b006cd2bf243c6821a", null ],
+    [ "st7920_basic_clear_string", "group__st7920__example__driver.html#gaadce09211f932d71d95e480bf7964499", null ],
     [ "st7920_basic_deinit", "group__st7920__example__driver.html#gaa290366b9da38565d424b580d315773f", null ],
     [ "st7920_basic_display_off", "group__st7920__example__driver.html#ga96584c5f1e93b40bc0fa41d76bf99e04", null ],
     [ "st7920_basic_display_on", "group__st7920__example__driver.html#gac581085af69b9c26710586f56cfc9b3e", null ],

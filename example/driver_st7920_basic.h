@@ -104,6 +104,24 @@ uint8_t st7920_basic_display_off(void);
 uint8_t st7920_basic_clear(void);
 
 /**
+ * @brief  basic example clear string
+ * @return status code
+ *         - 0 success
+ *         - 1 clear failed
+ * @note   none
+ */
+uint8_t st7920_basic_clear_string(void);
+
+/**
+ * @brief  basic example clear image
+ * @return status code
+ *         - 0 success
+ *         - 1 clear failed
+ * @note   none
+ */
+uint8_t st7920_basic_clear_image(void);
+
+/**
  * @brief     basic example write a point
  * @param[in] x coordinate x
  * @param[in] y coordinate y
