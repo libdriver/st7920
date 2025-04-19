@@ -11,7 +11,7 @@
 ST7920 LCD controller/driver IC can display alphabets, numbers, Chinese fonts and self-defined characters. It supports 3 kinds of bus interface, namely 8-bit, 4-bit and serial. All functions, including display RAM, Character Generation ROM, LCD display drivers and control circuits are all in a one-chip solution. With a minimum system configuration, a Chinese character display system can be easily achieved.ST7920 includes character ROM with 8192 16x16 dots Chinese fonts and 126 16x8 dots half-width alphanumerical fonts. Besides, it supports 64x256 dots graphic display area for graphic display (GDRAM). Mix-mode display with
 both character and graphic data is possible. ST7920 has built-in CGRAM and provide 4 sets software programmable 16x16 fonts.ST7920 has wide operating voltage range (2.7V to 5.5V). It also has low power consumption. So ST7920 is suitable for battery-powered portable device.ST7920 LCD driver consists of 32-common and 64-segment. 
 
-LibDriver ST7920 is the full function driver of ST7920 launched by LibDriver.It provides the functions of drawing single point, filling block, image display, etc. LibDriver is MISRA compliant.
+LibDriver ST7920 is a full-featured driver of ST7920 launched by LibDriver.It provides the functions of drawing single point, filling block, image display, etc. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
