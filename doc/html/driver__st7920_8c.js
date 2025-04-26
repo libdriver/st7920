@@ -28,6 +28,7 @@ var driver__st7920_8c =
     [ "TEMPERATURE_MIN", "driver__st7920_8c.html#aab353db5bf4eb787f86a2080f609a551", null ],
     [ "st7920_deinit", "group__st7920__basic__driver.html#ga9ac309fec505b57e6360f4ca6d7281d5", null ],
     [ "st7920_display_clear", "group__st7920__basic__driver.html#ga23c2f154b72222a831fb736ca33489a2", null ],
+    [ "st7920_draw_compress_picture", "group__st7920__extended__driver.html#ga1bd33971bfaf3afc6ac3dbbf5e39c568", null ],
     [ "st7920_draw_picture", "group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33", null ],
     [ "st7920_fill_rect", "group__st7920__extended__driver.html#gaa088b92fa271967f6302ef6505c2465a", null ],
     [ "st7920_info", "group__st7920__basic__driver.html#ga08e5f76110949ea561d767416e6c949b", null ],

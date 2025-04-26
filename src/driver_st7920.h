@@ -57,6 +57,20 @@ extern "C"{
  */
 
 /**
+ * @brief st7920 command cmd delay definition
+ */
+#ifndef ST7920_COMMAND_CMD_DELAY
+    #define ST7920_COMMAND_CMD_DELAY        100        /**< 100us */
+#endif
+
+/**
+ * @brief st7920 command data delay definition
+ */
+#ifndef ST7920_COMMAND_DATA_DELAY
+    #define ST7920_COMMAND_DATA_DELAY        10        /**< 10us */
+#endif
+
+/**
  * @brief st7920 bool enumeration definition
  */
 typedef enum
@@ -578,6 +592,27 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
  * @note      none
  */
 uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img);
+
+/**
+ * @brief     draw a compressed picture
+ * @param[in] *handle pointer to an st7920 handle structure
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] *img pointer to an image buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 fill rect failed
+ *            - 2 handle is NULL
+ *            - 3 handle is not initialized
+ *            - 4 this command must be run in extended command mode
+ *            - 5 left or top is invalid
+ *            - 6 right or bottom is invalid
+ *            - 7 left > right or top > bottom
+ * @note      draw a compressed picture, one bit one pixel
+ */
+uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img);
 
 /**
  * @brief     terminate to the standby mode

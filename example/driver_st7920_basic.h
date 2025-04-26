@@ -186,6 +186,20 @@ uint8_t st7920_basic_rect(int8_t left, uint8_t top, uint8_t right, uint8_t botto
 uint8_t st7920_basic_picture(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img);
 
 /**
+ * @brief     basic example draw a compressed picture
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] *img pointer to a image buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 draw picture failed
+ * @note      draw a compressed picture, one bit one pixel
+ */
+uint8_t st7920_basic_compress_picture(int8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img);
+
+/**
  * @}
  */
 
