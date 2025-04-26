@@ -1128,7 +1128,7 @@ uint8_t st7920_display_clear(st7920_handle_t *handle)
     if (handle->basic_extended == 0)
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                                ST7920_CMD_BASIC_DISPLAY_CLEAR, ST7920_COMMAND_CMD_DELAY) != 0)             /* write command */
+                                ST7920_CMD_BASIC_DISPLAY_CLEAR, 2000) != 0)                                 /* write command */
         {
             handle->debug_print("st7920: display clear failed.\n");                                         /* display clear failed */
             
