@@ -469,6 +469,39 @@ uint8_t st7920_advance_picture(uint8_t left, uint8_t top, uint8_t right, uint8_t
 }
 
 /**
+ * @brief     advance example draw a compressed picture
+ * @param[in] left left coordinate x
+ * @param[in] top top coordinate y
+ * @param[in] right right coordinate x
+ * @param[in] bottom bottom coordinate y
+ * @param[in] *img pointer to a image buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 draw picture failed
+ * @note      draw a compressed picture, one bit one pixel
+ */
+uint8_t st7920_advance_compress_picture(uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)
+{
+    uint8_t res;
+    
+    /* set extended function */
+    res = st7920_set_extended_function(&gs_handle, ST7920_INTERFACE_BUS_BIT_8, ST7920_COMMAND_MODE_EXTENDED, ST7920_BOOL_TRUE);
+    if (res != 0)
+    {
+        return 1;
+    }
+    
+    /* draw picture */
+    res = st7920_draw_compress_picture(&gs_handle, left, top, right, bottom, (uint8_t *)img);
+    if (res != 0)
+    {
+        return 1;
+    }
+    
+    return 0;
+}
+
+/**
  * @brief     advance example set reverse line
  * @param[in] l reverse line
  * @return    status code

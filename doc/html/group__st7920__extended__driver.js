@@ -6,6 +6,7 @@ var group__st7920__extended__driver =
       [ "ST7920_REVERSE_LINE_THIRD", "group__st7920__extended__driver.html#gga9a4c070ee6cd0692698cb6ade1763f68a4e75717248aa8c76461178dd0e1bcc0f", null ],
       [ "ST7920_REVERSE_LINE_FOURTH", "group__st7920__extended__driver.html#gga9a4c070ee6cd0692698cb6ade1763f68aaf88428989971d43ae76ca4ab969de1e", null ]
     ] ],
+    [ "st7920_draw_compress_picture", "group__st7920__extended__driver.html#ga1bd33971bfaf3afc6ac3dbbf5e39c568", null ],
     [ "st7920_draw_picture", "group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33", null ],
     [ "st7920_fill_rect", "group__st7920__extended__driver.html#gaa088b92fa271967f6302ef6505c2465a", null ],
     [ "st7920_read_point", "group__st7920__extended__driver.html#gadca96d799646e89d6c14979d173fab36", null ],

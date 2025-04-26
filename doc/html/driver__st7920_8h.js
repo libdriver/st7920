@@ -13,6 +13,8 @@ var driver__st7920_8h =
     [ "DRIVER_ST7920_LINK_SID_GPIO_DEINIT", "group__st7920__link__driver.html#gaca6565260cb288637e85d80894ebdee7", null ],
     [ "DRIVER_ST7920_LINK_SID_GPIO_INIT", "group__st7920__link__driver.html#gaa9376ce03fb33187ec28708bc4f38397", null ],
     [ "DRIVER_ST7920_LINK_SID_GPIO_WRITE", "group__st7920__link__driver.html#gaacede1a706a7163f5786b529922be0f0", null ],
+    [ "ST7920_COMMAND_CMD_DELAY", "group__st7920__basic__driver.html#gaea0894ec4e98575711478ec1538d1c06", null ],
+    [ "ST7920_COMMAND_DATA_DELAY", "group__st7920__basic__driver.html#ga3050adc3c58361534b162381fd38387b", null ],
     [ "st7920_handle_t", "group__st7920__basic__driver.html#ga30a0392517da2b99a60d8aca89c51055", null ],
     [ "st7920_info_t", "group__st7920__basic__driver.html#ga0a67e6affb846fd8bf8f9e75f1ede090", null ],
     [ "st7920_address_counter_mode_t", "group__st7920__basic__driver.html#ga6f41e8782e15981492a80f7176c96410", [
@@ -49,6 +51,7 @@ var driver__st7920_8h =
     ] ],
     [ "st7920_deinit", "group__st7920__basic__driver.html#ga9ac309fec505b57e6360f4ca6d7281d5", null ],
     [ "st7920_display_clear", "group__st7920__basic__driver.html#ga23c2f154b72222a831fb736ca33489a2", null ],
+    [ "st7920_draw_compress_picture", "group__st7920__extended__driver.html#ga1bd33971bfaf3afc6ac3dbbf5e39c568", null ],
     [ "st7920_draw_picture", "group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33", null ],
     [ "st7920_fill_rect", "group__st7920__extended__driver.html#gaa088b92fa271967f6302ef6505c2465a", null ],
     [ "st7920_info", "group__st7920__basic__driver.html#ga08e5f76110949ea561d767416e6c949b", null ],

@@ -1,3 +1,9 @@
+## 1.0.9 (2025-04-26)
+
+## Features
+
+- add new draw function
+
 ## 1.0.8 (2025-04-16)
 
 ## Bug Fixes

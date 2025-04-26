@@ -29,6 +29,8 @@ var group__st7920__basic__driver =
       [ "temperature_max", "structst7920__info__s.html#a3366a5dce9b829e03c3d321c2b4df3f6", null ],
       [ "temperature_min", "structst7920__info__s.html#a8f9dbe66ac0b66ebae0a36fcb4ba368e", null ]
     ] ],
+    [ "ST7920_COMMAND_CMD_DELAY", "group__st7920__basic__driver.html#gaea0894ec4e98575711478ec1538d1c06", null ],
+    [ "ST7920_COMMAND_DATA_DELAY", "group__st7920__basic__driver.html#ga3050adc3c58361534b162381fd38387b", null ],
     [ "st7920_handle_t", "group__st7920__basic__driver.html#ga30a0392517da2b99a60d8aca89c51055", null ],
     [ "st7920_info_t", "group__st7920__basic__driver.html#ga0a67e6affb846fd8bf8f9e75f1ede090", null ],
     [ "st7920_address_counter_mode_t", "group__st7920__basic__driver.html#ga6f41e8782e15981492a80f7176c96410", [

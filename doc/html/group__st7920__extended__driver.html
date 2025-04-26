@@ -119,6 +119,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa0cba4ec75ee69c7bccdb0d744647e33"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33">st7920_draw_picture</a> (<a class="el" href="group__st7920__basic__driver.html#ga30a0392517da2b99a60d8aca89c51055">st7920_handle_t</a> *handle, uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)</td></tr>
 <tr class="memdesc:gaa0cba4ec75ee69c7bccdb0d744647e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw a picture  <a href="group__st7920__extended__driver.html#gaa0cba4ec75ee69c7bccdb0d744647e33">More...</a><br /></td></tr>
 <tr class="separator:gaa0cba4ec75ee69c7bccdb0d744647e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd33971bfaf3afc6ac3dbbf5e39c568"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__st7920__extended__driver.html#ga1bd33971bfaf3afc6ac3dbbf5e39c568">st7920_draw_compress_picture</a> (<a class="el" href="group__st7920__basic__driver.html#ga30a0392517da2b99a60d8aca89c51055">st7920_handle_t</a> *handle, uint8_t left, uint8_t top, uint8_t right, uint8_t bottom, uint8_t *img)</td></tr>
+<tr class="memdesc:ga1bd33971bfaf3afc6ac3dbbf5e39c568"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw a compressed picture  <a href="group__st7920__extended__driver.html#ga1bd33971bfaf3afc6ac3dbbf5e39c568">More...</a><br /></td></tr>
+<tr class="separator:ga1bd33971bfaf3afc6ac3dbbf5e39c568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2ed86e363e0d49a66ace9e3644da56ea"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__st7920__extended__driver.html#ga2ed86e363e0d49a66ace9e3644da56ea">st7920_set_standby</a> (<a class="el" href="group__st7920__basic__driver.html#ga30a0392517da2b99a60d8aca89c51055">st7920_handle_t</a> *handle)</td></tr>
 <tr class="memdesc:ga2ed86e363e0d49a66ace9e3644da56ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">terminate to the standby mode  <a href="group__st7920__extended__driver.html#ga2ed86e363e0d49a66ace9e3644da56ea">More...</a><br /></td></tr>
 <tr class="separator:ga2ed86e363e0d49a66ace9e3644da56ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,11 +168,90 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8h_source.html#l00127">127</a> of file <a class="el" href="driver__st7920_8h_source.html">driver_st7920.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8h_source.html#l00141">141</a> of file <a class="el" href="driver__st7920_8h_source.html">driver_st7920.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga1bd33971bfaf3afc6ac3dbbf5e39c568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1bd33971bfaf3afc6ac3dbbf5e39c568">&#9670;&nbsp;</a></span>st7920_draw_compress_picture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t st7920_draw_compress_picture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__st7920__basic__driver.html#ga30a0392517da2b99a60d8aca89c51055">st7920_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>img</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>draw a compressed picture </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an st7920 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">left</td><td>left coordinate x </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">top</td><td>top coordinate y </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">right</td><td>right coordinate x </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bottom</td><td>bottom coordinate y </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*img</td><td>pointer to an image buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status code<ul>
+<li>0 success</li>
+<li>1 fill rect failed</li>
+<li>2 handle is NULL</li>
+<li>3 handle is not initialized</li>
+<li>4 this command must be run in extended command mode</li>
+<li>5 left or top is invalid</li>
+<li>6 right or bottom is invalid</li>
+<li>7 left &gt; right or top &gt; bottom </li>
+</ul>
+</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>draw a compressed picture, one bit one pixel </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00954">954</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+
+</div>
+</div>
 <a id="gaa0cba4ec75ee69c7bccdb0d744647e33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa0cba4ec75ee69c7bccdb0d744647e33">&#9670;&nbsp;</a></span>st7920_draw_picture()</h2>
 
@@ -245,7 +327,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00797">797</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00805">805</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -324,7 +406,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00653">653</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00657">657</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -388,7 +470,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>0 &lt;= x &lt;= 127 0 &lt;= y &lt;= 63 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00496">496</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l00498">498</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -449,7 +531,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01524">1524</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01698">1698</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -506,7 +588,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>0 &lt;= vertical_addr &lt;= 0x3F 0 &lt;= horizontal_addr &lt;= 0xF </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01615">1615</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01789">1789</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -554,7 +636,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01482">1482</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01656">1656</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -603,7 +685,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>0 &lt;= addr &lt;= 0x3F </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01563">1563</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01737">1737</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -640,7 +722,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01400">1400</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01574">1574</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
@@ -688,7 +770,7 @@ Functions</h2></td></tr>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01440">1440</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__st7920_8c_source.html#l01614">1614</a> of file <a class="el" href="driver__st7920_8c_source.html">driver_st7920.c</a>.</p>
 
 </div>
 </div>
