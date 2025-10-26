@@ -385,7 +385,7 @@ Options:
   -i, --information       Show the chip information.
       --line=<0 | 1>      Set the reverse line.([default: 0])
   -p, --port              Display the pin connections of the current board.
-      --scroll            Set the scrolling address and 0 <= scroll <= 63.([default: 16])
+      --scroll=<addr>     Set the scrolling address and 0 <= addr <= 63.([default: 16])
       --str=<string>      Set the display string.([default: libdriver])
   -t <display>, --test=<display>
                           Run the driver test.
