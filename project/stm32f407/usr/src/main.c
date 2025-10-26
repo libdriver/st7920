@@ -22,7 +22,7 @@
  * SOFTWARE. 
  *
  * @file      main.c
- * @brief     main souce file
+ * @brief     main source file
  * @version   1.0.0
  * @author    Shifeng Li
  * @date      2022-03-19
@@ -737,7 +737,7 @@ uint8_t st7920(uint8_t argc, char **argv)
         st7920_interface_debug_print("  -i, --information       Show the chip information.\n");
         st7920_interface_debug_print("      --line=<0 | 1>      Set the reverse line.([default: 0])\n");
         st7920_interface_debug_print("  -p, --port              Display the pin connections of the current board.\n");
-        st7920_interface_debug_print("      --scroll            Set the scrolling address and 0 <= scroll <= 63.([default: 16])\n");
+        st7920_interface_debug_print("      --scroll=<addr>     Set the scrolling address and 0 <= addr <= 63.([default: 16])\n");
         st7920_interface_debug_print("      --str=<string>      Set the display string.([default: libdriver])\n");
         st7920_interface_debug_print("  -t <display>, --test=<display>\n");
         st7920_interface_debug_print("                          Run the driver test.\n");
@@ -801,7 +801,7 @@ int main(void)
     /* uart init */
     uart_init(115200);
     
-    /* shell init && register st7920 fuction */
+    /* shell init && register st7920 function */
     shell_init();
     shell_register("st7920", st7920);
     uart_print("st7920: welcome to libdriver st7920.\n");

@@ -742,7 +742,7 @@ uint8_t st7920(uint8_t argc, char **argv)
         st7920_interface_debug_print("  -i, --information       Show the chip information.\n");
         st7920_interface_debug_print("      --line=<0 | 1>      Set the reverse line.([default: 0])\n");
         st7920_interface_debug_print("  -p, --port              Display the pin connections of the current board.\n");
-        st7920_interface_debug_print("      --scroll            Set the scrolling address and 0 <= scroll <= 63.([default: 16])\n");
+        st7920_interface_debug_print("      --scroll=<addr>     Set the scrolling address and 0 <= addr <= 63.([default: 16])\n");
         st7920_interface_debug_print("      --str=<string>      Set the display string.([default: libdriver])\n");
         st7920_interface_debug_print("  -t <display>, --test=<display>\n");
         st7920_interface_debug_print("                          Run the driver test.\n");
