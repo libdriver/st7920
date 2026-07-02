@@ -32,7 +32,7 @@ var NAVTREEINDEX0 =
 "driver__st7920_8c.html#ae578001fe043b4cca7a0edd801cfe9c4":[2,0,3,0,1],
 "driver__st7920_8c.html#ae722ddde450c94c47d39be105b034253":[2,0,3,0,13],
 "driver__st7920_8c.html#aeb11a83acbbd82a5bbfd028ef5abcfa6":[2,0,3,0,5],
-"driver__st7920_8c.html#aeb3d4eef613f73ee17e55cd620e8ee0b":[2,0,3,0,18],
+"driver__st7920_8c.html#aeb8c787fb79f1e7c33f619ab27f20c3c":[2,0,3,0,18],
 "driver__st7920_8c.html#aec2ac1baaab08c0cc6674a911feb0e7e":[2,0,3,0,8],
 "driver__st7920_8c.html#af406ba40b00c0967b040877187e5f033":[2,0,3,0,10],
 "driver__st7920_8c_source.html":[2,0,3,0],
