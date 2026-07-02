@@ -18,7 +18,7 @@ var driver__st7920_8c =
     [ "ST7920_CMD_EXT_SCROLL_RAM_ADDRESS_SELECT", "driver__st7920_8c.html#a9a024818a2472b48403ccd24c0429baa", null ],
     [ "ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS", "driver__st7920_8c.html#aa6b6fba08c8235b79872c8ad5e3be9bc", null ],
     [ "ST7920_CMD_EXT_SET_SCROLL_ADDRESS", "driver__st7920_8c.html#a2e168de5346af68194c7b26a701f79cb", null ],
-    [ "ST7920_CMD_EXT_STANFBY", "driver__st7920_8c.html#aeb3d4eef613f73ee17e55cd620e8ee0b", null ],
+    [ "ST7920_CMD_EXT_STANDBY", "driver__st7920_8c.html#aeb8c787fb79f1e7c33f619ab27f20c3c", null ],
     [ "ST7920_DATA", "driver__st7920_8c.html#a76a38cdf60ecbe3a6c383800a2fe3ad6", null ],
     [ "ST7920_READ", "driver__st7920_8c.html#a395de67d59a0044fa851fe53b332f88f", null ],
     [ "ST7920_WRITE", "driver__st7920_8c.html#a7759c9e031f14bb89a290bfbba6782d9", null ],

@@ -71,7 +71,7 @@
 #define ST7920_CMD_BASIC_FUNCTION_SET                         0x20        /**< function set command */
 #define ST7920_CMD_BASIC_SET_CGRAM                            0x40        /**< set cgram command */
 #define ST7920_CMD_BASIC_SET_DDRAM                            0x80        /**< set ddram command */
-#define ST7920_CMD_EXT_STANFBY                                0x01        /**< standby command */
+#define ST7920_CMD_EXT_STANDBY                                0x01        /**< standby command */
 #define ST7920_CMD_EXT_SCROLL_RAM_ADDRESS_SELECT              0x02        /**< scroll or ram address select command */
 #define ST7920_CMD_EXT_REVERSE                                0x04        /**< reverse command */
 #define ST7920_CMD_EXT_FUNCTION_SET                           0x20        /**< extended function command */
@@ -1589,7 +1589,7 @@ uint8_t st7920_set_standby(st7920_handle_t *handle)
     }
     
     if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                            ST7920_CMD_EXT_STANFBY, ST7920_COMMAND_CMD_DELAY) != 0)                 /* write command */
+                            ST7920_CMD_EXT_STANDBY, ST7920_COMMAND_CMD_DELAY) != 0)                 /* write command */
     {
         handle->debug_print("st7920: set standby failed.\n");                                       /* set standby failed */
         

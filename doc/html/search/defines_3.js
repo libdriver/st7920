@@ -14,7 +14,7 @@ var searchData=
   ['st7920_5fcmd_5fext_5fscroll_5fram_5faddress_5fselect_11',['ST7920_CMD_EXT_SCROLL_RAM_ADDRESS_SELECT',['../driver__st7920_8c.html#a9a024818a2472b48403ccd24c0429baa',1,'driver_st7920.c']]],
   ['st7920_5fcmd_5fext_5fset_5fgraphic_5fdisplay_5fram_5faddress_12',['ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS',['../driver__st7920_8c.html#aa6b6fba08c8235b79872c8ad5e3be9bc',1,'driver_st7920.c']]],
   ['st7920_5fcmd_5fext_5fset_5fscroll_5faddress_13',['ST7920_CMD_EXT_SET_SCROLL_ADDRESS',['../driver__st7920_8c.html#a2e168de5346af68194c7b26a701f79cb',1,'driver_st7920.c']]],
-  ['st7920_5fcmd_5fext_5fstanfby_14',['ST7920_CMD_EXT_STANFBY',['../driver__st7920_8c.html#aeb3d4eef613f73ee17e55cd620e8ee0b',1,'driver_st7920.c']]],
+  ['st7920_5fcmd_5fext_5fstandby_14',['ST7920_CMD_EXT_STANDBY',['../driver__st7920_8c.html#aeb8c787fb79f1e7c33f619ab27f20c3c',1,'driver_st7920.c']]],
   ['st7920_5fdata_15',['ST7920_DATA',['../driver__st7920_8c.html#a76a38cdf60ecbe3a6c383800a2fe3ad6',1,'driver_st7920.c']]],
   ['st7920_5fread_16',['ST7920_READ',['../driver__st7920_8c.html#a395de67d59a0044fa851fe53b332f88f',1,'driver_st7920.c']]],
   ['st7920_5fwrite_17',['ST7920_WRITE',['../driver__st7920_8c.html#a7759c9e031f14bb89a290bfbba6782d9',1,'driver_st7920.c']]],
