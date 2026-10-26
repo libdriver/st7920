@@ -174,7 +174,6 @@ typedef struct st7920_handle_s
     void (*delay_us)(uint32_t us);                          /**< point to a delay_us function address */
     uint8_t basic_extended;                                 /**< basic extended flag */
     uint8_t inited;                                         /**< inited flag */
-    uint8_t scroll_address;                                 /**< scroll address */
     uint16_t gram[8][64];                                   /**< gram buffer */
 } st7920_handle_t;
 
