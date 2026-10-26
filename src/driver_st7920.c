@@ -439,10 +439,8 @@ uint8_t st7920_write_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_
         handle->gram[x / 16][y] &= ~(1 << (15 - (x % 16)));                                         /* set data */
     }
     
-    y += handle->scroll_address;                                                                    /* y += scroll address */
     if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                           (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + 
-                           ((y - handle->scroll_address) % 32 + handle->scroll_address) % 64),
+                           (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + (y % 32)),
                             ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
     {
         handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -451,7 +449,7 @@ uint8_t st7920_write_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_
     }
     if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
                            (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS +
-                            8 * ((y - handle->scroll_address) / 32) + x / 16),
+                            8 * (y / 32) + x / 16),
                             ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set horizontal addr */
     {
         handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -459,7 +457,7 @@ uint8_t st7920_write_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_
         return 1;                                                                                   /* return error */
     }
     if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                           (uint8_t)((handle->gram[x / 16][y % 64] >> 8) & 0xFF), 
+                           (uint8_t)((handle->gram[x / 16][y] >> 8) & 0xFF), 
                             ST7920_COMMAND_DATA_DELAY) != 0)                                        /* write data */
     {
         handle->debug_print("st7920: write data failed.\n");                                        /* write data failed */
@@ -467,7 +465,7 @@ uint8_t st7920_write_point(st7920_handle_t *handle, uint8_t x, uint8_t y, uint8_
         return 1;                                                                                   /* return error */
     }
     if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                           (uint8_t)((handle->gram[x / 16][y % 64] >> 0) & 0xFF), 
+                           (uint8_t)((handle->gram[x / 16][y] >> 0) & 0xFF), 
                             ST7920_COMMAND_DATA_DELAY) != 0)                                        /* write data */
     {
         handle->debug_print("st7920: write data failed.\n");                                        /* write data failed */
@@ -658,7 +656,6 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
 {
     uint8_t x, y;
     uint8_t i, j;
-    uint8_t pos_start, pos_end;
     
     if (handle == NULL)                                                                                 /* check handle */
     {
@@ -701,12 +698,10 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
         }
     }
     
-    pos_start = handle->scroll_address;                                                                 /* set start */
-    pos_end = 32 + handle->scroll_address;                                                              /* set end */
-    for (i = pos_start; i < pos_end; i++)                                                               /* 32 line */
+    for (i = 0; i < 32; i++)                                                                            /* 32 line */
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i % 64),
+                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i),
                                 ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
         {
             handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -724,7 +719,7 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
         for (j = 0; j < 8; j++)                                                                         /* 8 times */
         {
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][i % 64] >> 8) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i] >> 8) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -732,7 +727,7 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
                 return 1;                                                                               /* return error */
             }
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][i % 64] >> 0) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i] >> 0) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -741,10 +736,11 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
             }
         }
     }
-    for (i = pos_start; i < pos_end; i++)                                                               /* 32 line */
+
+    for (i = 0; i < 32; i++)                                                                            /* 32 line */
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i % 64),
+                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i),
                                 ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
         {
             handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -762,7 +758,7 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
         for (j = 0; j < 8; j++)                                                                         /* 8 times */
         {
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][(i + 32) % 64] >> 8) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i + 32] >> 8) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -770,7 +766,7 @@ uint8_t st7920_fill_rect(st7920_handle_t *handle, uint8_t left, uint8_t top, uin
                 return 1;                                                                               /* return error */
             }
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][(i + 32) % 64] >> 0) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i + 32] >> 0) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -806,7 +802,6 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
 {
     uint8_t x, y;
     uint8_t i, j;
-    uint8_t pos_start, pos_end;
     
     if (handle == NULL)                                                                                 /* check handle */
     {
@@ -850,12 +845,10 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
         }
     }
     
-    pos_start = handle->scroll_address;                                                                 /* set start */
-    pos_end = 32 + handle->scroll_address;                                                              /* set end */
-    for (i = pos_start; i < pos_end; i++)                                                               /* 32 line */
+    for (i = 0; i < 32; i++)                                                                            /* 32 line */
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i % 64),
+                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i),
                                 ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
         {
             handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -873,7 +866,7 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
         for (j = 0; j < 8; j++)                                                                         /* 8 times */
         {
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][i % 64] >> 8) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i] >> 8) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -881,7 +874,7 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
                 return 1;                                                                               /* return error */
             }
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][i % 64] >> 0) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i] >> 0) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -890,10 +883,11 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
             }
         }
     }
-    for (i = pos_start; i < pos_end; i++)                                                               /* 32 line */
+
+    for (i = 0; i < 32; i++)                                                                            /* 32 line */
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i % 64),
+                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i),
                                 ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
         {
             handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -911,7 +905,7 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
         for (j = 0; j < 8; j++)                                                                         /* 8 times */
         {
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][(i + 32) % 64] >> 8) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i + 32] >> 8) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -919,7 +913,7 @@ uint8_t st7920_draw_picture(st7920_handle_t *handle, uint8_t left, uint8_t top, 
                 return 1;                                                                               /* return error */
             }
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][(i + 32) % 64] >> 0) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i + 32] >> 0) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -955,7 +949,6 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
 {
     uint8_t x, y;
     uint8_t i, j;
-    uint8_t pos_start, pos_end;
     
     if (handle == NULL)                                                                                 /* check handle */
     {
@@ -1012,12 +1005,10 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
         }
     }
     
-    pos_start = handle->scroll_address;                                                                 /* set start */
-    pos_end = 32 + handle->scroll_address;                                                              /* set end */
-    for (i = pos_start; i < pos_end; i++)                                                               /* 32 line */
+    for (i = 0; i < 32; i++)                                                                            /* 32 line */
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i % 64),
+                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i),
                                 ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
         {
             handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -1035,7 +1026,7 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
         for (j = 0; j < 8; j++)                                                                         /* 8 times */
         {
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][i % 64] >> 8) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i] >> 8) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -1043,7 +1034,7 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
                 return 1;                                                                               /* return error */
             }
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][i % 64] >> 0) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i] >> 0) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -1052,10 +1043,11 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
             }
         }
     }
-    for (i = pos_start; i < pos_end; i++)                                                               /* 32 line */
+
+    for (i = 0; i < 32; i++)                                                                            /* 32 line */
     {
         if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_CMD,
-                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i % 64),
+                               (uint8_t)(ST7920_CMD_EXT_SET_GRAPHIC_DISPLAY_RAM_ADDRESS + i),
                                 ST7920_COMMAND_CMD_DELAY) != 0)                                         /* set vertical addr */
         {
             handle->debug_print("st7920: set graphic address failed.\n");                               /* set graphic address failed */
@@ -1073,7 +1065,7 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
         for (j = 0; j < 8; j++)                                                                         /* 8 times */
         {
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][(i + 32) % 64] >> 8) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i + 32] >> 8) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -1081,7 +1073,7 @@ uint8_t st7920_draw_compress_picture(st7920_handle_t *handle, uint8_t left, uint
                 return 1;                                                                               /* return error */
             }
             if (a_st7920_write_byte(handle, ST7920_WRITE, ST7920_DATA,
-                                   (uint8_t)((handle->gram[j][(i + 32) % 64] >> 0) & 0xFF),
+                                   (uint8_t)((handle->gram[j][i + 32] >> 0) & 0xFF),
                                     ST7920_COMMAND_DATA_DELAY) != 0)                                    /* write data */
             {
                 handle->debug_print("st7920: write data failed.\n");                                    /* write data failed */
@@ -1765,7 +1757,6 @@ uint8_t st7920_set_scroll_address(st7920_handle_t *handle, uint8_t addr)
         
         return 1;                                                                                   /* return error */
     }
-    handle->scroll_address = addr;                                                                  /* set addr */
 
     return 0;                                                                                       /* success return 0 */
 }
